@@ -59,7 +59,7 @@ project-name/
 
 ## Contributors
 - **Josh** - BCIT CST Student who's addicted to videogames. Fun fact: My dad met Billy Joel at a restaurant a long time ago.
-- **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
+- **Courtney Lum** - BCIT CST Student who has no programming experience. Fun fact: Has never dyed her hair before.
 - **Tin Trinh** - BCIT CST Student who is rather new to programming. Fun fact: Likes to look at the weather app.
 
 ---
