@@ -58,7 +58,7 @@ project-name/
 ---
 
 ## Contributors
-- **Your Name** - BCIT CST Student with a passion for creating user-friendly applications. Fun fact: Loves solving Rubik's Cubes in under a minute.
+- **Josh** - BCIT CST Student who's addicted to videogames. Fun fact: My dad met Billy Joel at a restaurant a long time ago.
 - **Teammate Name** - BCIT CST Student, Frontend enthusiast with a knack for creative design. Fun fact: Has a collection of over 50 houseplants.
 
 ---
