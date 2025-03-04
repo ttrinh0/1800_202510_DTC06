@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SecondServe</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Other libraries go here -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/dd6ea4ec65.js" crossorigin="anonymous"></script>
+
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+    <!-- TOP NAV -->
+    <nav id="navbarTop" class="sticky top-0 z-999"></nav>
+
+    <!-- Stuff for body goes here -->
+
+
+    <section class="pt-2 pb-8 2xl:max-w-screen-2xl 2xl:mx-auto">
+
+        <article class="p-6">
+
+            <!-- BROWSE SECTION -->
+            <h1 class="text-2xl font-semibold mb-4">Stores</h1>
+            <div class="pb-5 text-xl flex justify-between">
+                <a href="#">A</a>
+                <a href="#">B</a>
+                <a href="#">C</a>
+                <a href="#">D</a>
+                <a href="#">E</a>
+                <a href="#">F</a>
+                <a href="#">G</a>
+                <a href="#">H</a>
+                <a href="#">I</a>
+                <a href="#">J</a>
+                <a href="#">K</a>
+                <a href="#">L</a>
+                <a href="#">M</a>
+                <a href="#">N</a>
+                <a href="#">O</a>
+                <a href="#">P</a>
+                <a href="#">Q</a>
+                <a href="#">R</a>
+                <a href="#">S</a>
+                <a href="#">T</a>
+                <a href="#">U</a>
+                <a href="#">V</a>
+                <a href="#">W</a>
+                <a href="#">X</a>
+                <a href="#">Y</a>
+                <a href="#">Z</a>
+            </div>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <a href="#">
+                    <div class=" bg-gray-300 text-black ">
+                        <div class="p-4">
+                            <h2 class="text-lg font-bold pb-2">Store Name</h2>
+                            <h3 class="font-bold">Store Info 1</h3>
+                            <p>Store additional information Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
+                                aliquid?</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="h-35 md:h-28 xl:h-36 bg-gray-300 overflow-hidden text-black ">
+                        <div class="p-4">
+                            <h2 class="text-lg font-bold pb-2">Store Name</h2>
+                            <h3 class="font-bold">Store Info 2</h3>
+                            <p>Store additional information Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
+                                aliquid?</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="h-35 md:h-28 xl:h-36 bg-gray-300 overflow-hidden text-black ">
+                        <div class="p-4">
+                            <h2 class="text-lg font-bold pb-2">Store Name</h2>
+                            <h3 class="font-bold">Store Info 3</h3>
+                            <p>Store additional information Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
+                                aliquid?</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="h-35 md:h-28 xl:h-36 bg-gray-300 overflow-hidden text-black ">
+                        <div class="p-4">
+                            <h2 class="text-lg font-bold pb-2">Store Name</h2>
+                            <h3 class="font-bold">Store Info 4</h3>
+                            <p>Store additional information Lorem ipsum dolor sit amet consectetur adipisicing elit. A,
+                                aliquid?</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- BOTTOM NAV -->
+    <nav id="navbarBottom" class="sticky bottom-0"></nav>
+    <!-- FOOTER -->
+    <nav id="footer"></nav>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_dtc06.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
