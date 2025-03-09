@@ -35,28 +35,46 @@
     <!------------------------------>
     <!-- TOP NAV -->
     <nav id="navbarTop" class="sticky top-0 z-999"></nav>
-
     <!-- Stuff for body goes here -->
 
-    <!-- Main Body -->
-    <main class="h-dvh">
-        <!-- MAPBOX -->
-        <div id='map' class="h-4/5">
+    <section class="2xl:max-w-screen-2xl 2xl:mx-auto">
+        <div class="p-2 px-4 m-4 text-black lg:block hidden">
+            <h1 class="text-2xl font-semibold ">Explore the Map!</h1>
         </div>
-        <!-- MAPBOX -->
-        <div>
-            <div class="card">
+        <!-- Main Body -->
+        <main class="lg:flex lg:flex-row lg:px-6 h-dvh">
+            <div class="relative lg:static md:basis-3/4">
+                <div class="absolute top-0 z-999 p-2 px-4 m-4 bg-black/75 rounded-md text-white lg:hidden">
+                    <h1 class="text-xl font-semibold">Explore the Map!</h1>
+                </div>
+                <!-- MAPBOX -->
+                <div id='map' class="h-[480px] lg:max-h-3/4 lg:h-[800px] absolute lg:static top-0">
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Need Suggestion?</h5>
-                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione eos, molestias
-                    dolore deleniti repellendus quam eligendi consequatur asperiores in nostrum ex error. Voluptatibus,
-                    odio reiciendis, aliquam accusantium distinctio perferendis dolorum voluptatum odit delectus iste
-                    quisquam impedit inventore eos unde perspiciatis nam earum ad rem, nesciunt quam? Laudantium
-                    voluptates repellat unde.</p>
+            <!-- MAPCARD -->
+            <div class="lg:basis-1/4 p-6 m-4 lg:mr-0 lg:mt-0 lg:max-h-3/4 lg:h-[800px] bg-green-400 rounded-lg">
+                <div class="card">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title font-semibold mb-4 text-lg">Store</h5>
+                    <div class="card-text">
+                        <p class="mb-2">Address</p>
+                        <p class="mb-4">Store description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Cum, numquam!
+                        </p>
+                        <div class="flex flex-col my-6">
+                            <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
+                            <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
+                        </div>
+                        <button
+                            class="bg-green-900 text-white font-semibold border-green-950 p-2 px-4 rounded-lg hover:bg-green-800">
+                            Go to Store Page
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </section>
 
 
 
