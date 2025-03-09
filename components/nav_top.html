@@ -1,7 +1,26 @@
+<!-- Sidebar -->
+<div class="fixed left-0 h-full bg-white w-[200px] border-r-2 border-slate-300" style="display:none" id="sidebar">
+    <div class="flex flex-col text-center">
+        <button onclick="navClose()" class="cursor-pointer mr-auto p-3 mx-3 mt-2"><i
+                class="fa-solid fa-xmark"></i></button>
+        <a href="/main.html" class="px-6 py-2 hover:bg-slate-200">Home</a>
+        <a href="/browse.html" class="px-6 py-2 hover:bg-slate-200">Browse</a>
+        <a href="#" class="px-6 py-2 hover:bg-slate-200">Map</a>
+        <a href="#" class="px-6 py-2 hover:bg-slate-200">Account</a>
+        <hr class="text-slate-300 my-2">
+        <button class="px-6 py-2 hover:bg-slate-200">Logout</button>
+    </div>
+</div>
+
+<!-- Navbar  -->
 <nav class="flex justify-between py-4 px-6 bg-slate-300">
-    <a href="#" class="my-auto">
-        <i class="fa-solid fa-utensils"></i>
-    </a>
+    <div class="my-auto">
+        <button class="hidden md:inline mr-6 cursor-pointer" onclick="navOpen()"><i
+                class="fa-solid fa-bars"></i></button>
+        <a href="#">
+            <i class="fa-solid fa-utensils"></i>
+        </a>
+    </div>
     <div class="flex min-w-1/2">
         <button type="submit">
             <i class="fa-solid fa-magnifying-glass mr-2"></i>
