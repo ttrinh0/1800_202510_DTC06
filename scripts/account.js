@@ -20,3 +20,18 @@ function getNameFromAuth() {
 }
 getNameFromAuth(); //run the function
 
+
+const page1Btn = document.getElementById('page1Btn');
+const page2Btn = document.getElementById('page2Btn');
+const page1 = document.getElementById('page1');
+const page2 = document.getElementById('page2');
+
+page1Btn.addEventListener('click', () => {
+    page1.classList.remove('hidden');
+    page2.classList.add('hidden');
+});
+
+page2Btn.addEventListener('click', () => {
+    page1.classList.add('hidden');
+    page2.classList.remove('hidden');
+});

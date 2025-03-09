@@ -38,19 +38,41 @@
 
     <main class="h-dvh">
         <navbar class="bg-slate-300 flex">
-            <page class="basis-1/2 text-center border-b-gray-300 border-b-5 hover:border-b-5 hover:border-b-black">
+            <page id="page1Btn"
+                class="basis-1/2 text-center select-none cursor-pointer border-b-gray-300 border-b-5 hover:border-b-5 hover:border-b-black">
                 <h1>Account Info</h1>
             </page>
-            <page class="basis-1/2 text-center hover:border-b-5 ">
+            <page id="page2Btn"
+                class="basis-1/2 text-center select-none cursor-pointer hover:border-b-5  data-page-id=">
                 <h1>Favourites</h1>
             </page>
         </navbar>
-        <greeting class="container-fluid p-5">
-            <div class="container">
-                <h1 class="display-4">Hi, <span id="name-goes-here"></span></h1>
-            </div>
-        </greeting>
+        <accountinfo id="page1" class="block">
+            <greeting class="container-fluid p-5">
+                <div class="container ml-5">
+                    <h1 class="display-4">Hi, <span id="name-goes-here"></span></h1>
+                </div>
+            </greeting>
 
+            <!-- ------------------------------ -->
+            <!-- PUT FIREBASE DATABASE IDs HERE -->
+            <!-- ------------------------------ -->
+
+            <content class="">
+                <div class="mt-10 flex flex-col ml-10 gap-5">
+                    <p>Email: <span></span></p>
+                    <p>Name: <span></span></p>
+                    <p>Password: <span></span></p>
+                </div>
+            </content>
+        </accountinfo>
+        <favourites id="page2" class="hidden">
+            <content>
+                <div>
+                    <p>Nothing</p>
+                </div>
+            </content>
+        </favourites>
     </main>
 
 
