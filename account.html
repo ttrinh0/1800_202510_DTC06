@@ -38,38 +38,68 @@
 
     <main class="h-dvh">
         <navbar class="bg-slate-300 flex">
-            <page id="page1Btn"
-                class="basis-1/2 text-center select-none cursor-pointer border-b-gray-300 border-b-5 hover:border-b-5 hover:border-b-black">
+            <page id="page1Btn" class="group basis-1/2 text-center select-none cursor-pointer hover:bg-slate-100">
                 <h1>Account Info</h1>
+                <hr class="border-2 invisible group-hover:visible">
             </page>
-            <page id="page2Btn"
-                class="basis-1/2 text-center select-none cursor-pointer hover:border-b-5  data-page-id=">
+            <page id="page2Btn" class="group basis-1/2 text-center select-none cursor-pointer hover:bg-slate-100">
                 <h1>Favourites</h1>
+                <hr class="border-2 invisible group-hover:visible">
             </page>
         </navbar>
+
         <accountinfo id="page1" class="block">
             <greeting class="container-fluid p-5">
                 <div class="container ml-5">
-                    <h1 class="display-4">Hi, <span id="name-goes-here"></span></h1>
+                    <h1 class="display-4 text-2xl">Hi, <span id="name-goes-here"></span></h1>
                 </div>
             </greeting>
 
             <!-- ------------------------------ -->
             <!-- PUT FIREBASE DATABASE IDs HERE -->
             <!-- ------------------------------ -->
-
             <content class="">
                 <div class="mt-10 flex flex-col ml-10 gap-5">
-                    <p>Email: <span></span></p>
-                    <p>Name: <span></span></p>
-                    <p>Password: <span></span></p>
+                    <p class="text-2xl">Email: <span></span></p>
+                    <p class="text-2xl">Name: <span></span></p>
+                    <p class="text-2xl">Password: <span></span></p>
                 </div>
             </content>
         </accountinfo>
+
         <favourites id="page2" class="hidden">
             <content>
                 <div>
-                    <p>Nothing</p>
+                    <section class="">
+                        <h1 class="pl-8 pt-6 text-black text-3xl">Here are you favourite stores</h1>
+                        <section class="translate-y-[90px]">
+                            <div class="flex justify-between px-3">
+                                <i class="fa-solid fa-square-caret-left fa-2xl" style="color: #000000;"></i>
+                                <i class="fa-solid fa-square-caret-right fa-2xl" style="color: #000000;"></i>
+                            </div>
+                        </section>
+                        <cards class="flex ml-3 mt-3">
+
+                            <!-- ------------------------------ -->
+                            <!-- PUT FIREBASE DATABASE IDs HERE -->
+                            <!-- ------------------------------ -->
+                            <object class="bg-gray-300 w-[200px] mr-5">
+                                <h1 class="text-lg pl-1 pt-2 pb-3">StoreName</h1>
+                                <img src="https://picsum.photos/400/320" class="mb-5 px-3" alt="placeholder_img">
+                                <p class="text-right pr-3">4 left</p>
+                            </object>
+                            <object class="bg-gray-300 w-[200px] mr-5">
+                                <h1 class="text-lg pl-1 pt-2 pb-3">StoreName</h1>
+                                <img src="https://picsum.photos/400/320" class="mb-5 px-3" alt="placeholder_img">
+                                <p class="text-right pr-3">4 left</p>
+                            </object>
+                            <object class="bg-gray-300 w-[200px] mr-5">
+                                <h1 class="text-lg pl-1 pt-2 pb-3">StoreName</h1>
+                                <img src="https://picsum.photos/400/320" class="mb-5 px-3" alt="placeholder_img">
+                                <p class="text-right pr-3">4 left</p>
+                            </object>
+                        </cards>
+                    </section>
                 </div>
             </content>
         </favourites>
