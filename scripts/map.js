@@ -25,7 +25,7 @@ function showMap() {
         //---------------------------------
         // Add interactive pins for the hikes
         //---------------------------------
-        addHikePins(map);
+        addStorePins(map);
 
         //--------------------------------------
         // Add interactive pin for the user's location
@@ -37,10 +37,10 @@ function showMap() {
 
 showMap();   // Call it! 
 
-function addHikePinsCircle(map) {
+function addStorePins(map) {
 
     // READING information from "events" collection in Firestore
-    db.collection('hikes').get().then(allEvents => {
+    db.collection('stores').get().then(allEvents => {
         const features = []; // Defines an empty array for information to be added to
 
         allEvents.forEach(doc => {
@@ -132,7 +132,7 @@ function addHikePinsCircle(map) {
 // looking pin for the user.  
 // This version uses a pin that is just a circle. 
 //------------------------------------------------------
-function addUserPinCircle(map) {
+function addUserPin(map) {
 
     // Adds user's current location as a source to the map
     navigator.geolocation.getCurrentPosition(position => {
