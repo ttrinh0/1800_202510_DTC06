@@ -10,14 +10,12 @@ function loadSkeleton() {
             // User is signed in.
             // Do something for the user here.
             console.log($('#navbarTop').load('./components/nav_top.html'));
-            console.log($('#navbarBottom').load('./components/nav_bottom.html'));
-            console.log($('#footer').load('./components/footer.html'));
         } else {
             // No user is signed in.
             console.log($('#navbarTop').load('./components/nav_top_non_user.html'));
-            console.log($('#navbarBottom').load('./components/nav_bottom.html'));
-            console.log($('#footer').load('./components/footer.html'));
         }
+        console.log($('#navbarBottom').load('./components/nav_bottom.html'));
+        console.log($('#footer').load('./components/footer.html'));
     });
 }
 loadSkeleton(); //invoke the function
