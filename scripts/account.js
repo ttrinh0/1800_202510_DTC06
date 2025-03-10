@@ -18,7 +18,6 @@ function getNameFromAuth() {
         }
     });
 }
-getNameFromAuth(); //run the function
 
 // Declare html id to variables
 const page1Btn = document.getElementById('page1Btn');
@@ -30,7 +29,7 @@ const page2 = document.getElementById('page2');
 page1Btn.addEventListener('click', () => {
     // Hides previous page
     page1.classList.remove('hidden');
-    page2.classList.add('hidden');
+    page2.classList.remove('block');
 
     // Change bg colour of btns
     page1Btn.classList.add('bg-slate-100');
@@ -41,8 +40,17 @@ page2Btn.addEventListener('click', () => {
     // Hides previous page
     page1.classList.add('hidden',);
     page2.classList.remove('hidden');
+    page2.classList.add('block');
 
     // Change bg colour of btns
     page2Btn.classList.add('bg-slate-100');
     page1Btn.classList.remove('bg-slate-100');
 });
+
+function Carousel() {
+    console.log($('.storeCarousel').load('./components/store_carousel.html'));
+    console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
+}
+
+Carousel();
+getNameFromAuth(); 
