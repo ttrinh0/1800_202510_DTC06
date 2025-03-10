@@ -51,29 +51,31 @@
             </page>
         </navbar>
 
-        <accountinfo id="page1" class="block">
-            <greeting class="container-fluid p-5">
-                <div class="container ml-5">
-                    <h1 class="display-4 text-2xl">Hi, <span id="name-goes-here"></span></h1>
-                </div>
-            </greeting>
+        <section class="pt-2 pb-8 md:px-6 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <accountinfo id="page1" class="block">
+                <greeting class="container-fluid p-5">
+                    <div class="container px-6 md:px-0">
+                        <h1 class="text-2xl">Hi, <span id="name-goes-here"></span></h1>
+                    </div>
+                </greeting>
 
-            <!-- ------------------------------ -->
-            <!-- PUT FIREBASE DATABASE IDs HERE -->
-            <!-- ------------------------------ -->
-            <content class="">
-                <div class="mt-10 flex flex-col ml-10 gap-5">
-                    <p class="text-2xl">Email: <span></span></p>
-                    <p class="text-2xl">Name: <span></span></p>
-                    <p class="text-2xl">Password: <span></span></p>
-                </div>
-            </content>
-        </accountinfo>
+                <!-- ------------------------------ -->
+                <!-- PUT FIREBASE DATABASE IDs HERE -->
+                <!-- ------------------------------ -->
+                <content class="">
+                    <div class="mt-10 flex flex-col ml-10 gap-5">
+                        <p class="text-2xl">Email: <span></span></p>
+                        <p class="text-2xl">Name: <span></span></p>
+                        <p class="text-2xl">Password: <span></span></p>
+                    </div>
+                </content>
+            </accountinfo>
 
-        <favourites id="page2" class="hidden">
-            <h1 class="pl-8 pt-6 text-black text-2xl">Here are your favourite stores</h1>
-            <div id="store_carousel"></div>
-        </favourites>
+            <favourites id="page2" class="hidden">
+                <h1 class="pt-6 px-6 md:px-0 mb-6 text-black text-2xl">Here are your favourite stores:</h1>
+                <div id="store_carousel"></div>
+            </favourites>
+        </section>
     </main>
 
 

@@ -30,6 +30,7 @@ const carousel = document.getElementById('store_carousel');
 page1Btn.addEventListener('click', () => {
     // Hides previous page
     page1.classList.remove('hidden');
+    page2.classList.add('hidden');
     page2.classList.remove('block');
     carousel.classList.remove('storeCarousel');
     carousel.innerHTML = ""
