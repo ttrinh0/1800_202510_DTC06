@@ -15,7 +15,3 @@ function Carousel() {
     console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
 }
 Carousel();
-
-function CarouselOnClick() {
-
-}
