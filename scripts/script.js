@@ -9,3 +9,13 @@ function logout() {
         // An error happened.
     });
 }
+
+function Carousel() {
+    console.log($('.storeCarousel').load('./components/store_carousel.html'));
+    console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
+}
+Carousel();
+
+function CarouselOnClick() {
+
+}

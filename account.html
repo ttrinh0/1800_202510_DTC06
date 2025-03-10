@@ -12,6 +12,7 @@
     <!-- Other libraries go here -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script src="https://kit.fontawesome.com/dd6ea4ec65.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,6 +25,8 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
 
 </head>
 
@@ -68,8 +71,8 @@
         </accountinfo>
 
         <favourites id="page2" class="hidden">
-            <h1 class="pl-8 pt-6 text-black text-2xl">Here are you favourite stores</h1>
-            <div class="storeCarousel"></div>
+            <h1 class="pl-8 pt-6 text-black text-2xl">Here are your favourite stores</h1>
+            <div id="store_carousel"></div>
         </favourites>
     </main>
 
@@ -87,6 +90,7 @@
     <script src="./scripts/account.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/nav.js"></script>
+
 </body>
 
 </html>
