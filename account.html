@@ -63,11 +63,24 @@
                 <!-- PUT FIREBASE DATABASE IDs HERE -->
                 <!-- ------------------------------ -->
                 <content class="">
-                    <div class="mt-10 flex flex-col ml-10 gap-5">
-                        <p class="text-2xl">Email: <span></span></p>
-                        <p class="text-2xl">Name: <span></span></p>
-                        <p class="text-2xl">Password: <span></span></p>
+                    <div id="userProfile" class="mt-10 flex flex-col ml-10 gap-5">
+                        <p class="text-2xl hidden">ID: <span id="user-id-goes-here"></span></p>
+                        <p class="text-2xl">Email: <span id="email-goes-here"></span></p>
+                        <p class="text-2xl">Name: <span id="user-name-firebase"></span></p>
+                        <p class="text-2xl">Country: <span id="country-goes-here"></span></p>
                     </div>
+                    <div id="editAccountForm" class="hidden mt-10 ml-10">
+                            <label for="name">Name:</label>
+                            <input type="text" id="user-name-form" name="name" class="block w-1/2 p-2 border-2 border-gray-300 rounded-md">
+                            <label for="email">Email:</label>  
+                            <input type="email" id="user-email-form" name="email" class="block w-1/2 p-2 border-2 border-gray-300 rounded-md">
+                            <label for="country">Country:</label>
+                            <input type="text" id="user-country-form" name="country" class="block w-1/2 p-2 border-2 border-gray-300 rounded-md">
+
+                            <button id="saveAccount" onclick="submitButton()" class="rounded-full py-1 px-3 bg-gray-200 hover:bg-gray-300">Save</button>
+                    </div>
+                    <button id="editAccountButton" class="rounded-full py-1 px-3 bg-gray-200 hover:bg-gray-300">Edit Account</button>
+                    
                 </content>
             </accountinfo>
 
