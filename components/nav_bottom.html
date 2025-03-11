@@ -1,4 +1,4 @@
-<nav class="block md:hidden bg-slate-300">
+<nav id="nav_bot_outer" class="block md:hidden bg-slate-300">
     <div id="navbot" class="flex justify-around">
 
         <a href="/main.html" class="hover:bg-slate-400 transition ">
@@ -19,11 +19,9 @@
 <script>
     let current = window.location.pathname;
     console.log(current);
-    // x = document.querySelectorAll(`a`)
     document.querySelectorAll("#navbot a").forEach(function (elem) {
         if (elem.href.includes(current)) {
             elem.classList.add("text-green-900", "bg-[#a0ccc0]", "rounded-md");
         }
     });
-    activeButton = document.getElementById(active)
 </script>
