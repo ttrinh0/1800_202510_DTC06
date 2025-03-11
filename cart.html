@@ -38,28 +38,30 @@
 
     <!-- Stuff for body goes here -->
     <section class="pt-2 pb-8 2xl:max-w-screen-2xl 2xl:mx-auto h-dvh">
-
         <article class="p-6">
-            <h1 class="text-2xl font-semibold mb-4">Cart</h1>
+            <div class="flex justify-between">
+                <h1 class="text-2xl font-semibold mb-4">Cart</h1>
+                <button id="orderHistory" class="rounded-full py-1 px-3 bg-gray-200 hover:bg-gray-300">Order History</button>
+            </div>
             <div id="cart" class="flex flex-col items-center justify-center flex-1 h-screen">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <h4 class="font-semibold text-lg pt-5">Your cart is empty</h4>
                 <p>Once you add items from a restaurant or store, your cart will appear here.</p>
             </div>
         </article>
-</section>  
+    </section>
 
-        <!-- BOTTOM NAV -->
-        <nav id="navbarBottom" class="sticky bottom-0"></nav>
-        <!-- FOOTER -->
-        <nav id="footer"></nav>
-        <!---------------------------------------------->
-        <!-- Your own JavaScript functions go here    -->
-        <!---------------------------------------------->
-        <script src="./scripts/firebaseAPI_dtc06.js"></script>
-        <script src="./scripts/skeleton.js"></script>
-        <script src="./scripts/script.js"></script>
-        <script src="./scripts/nav.js"></script>
+    <!-- BOTTOM NAV -->
+    <nav id="navbarBottom" class="sticky bottom-0"></nav>
+    <!-- FOOTER -->
+    <nav id="footer"></nav>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_dtc06.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/nav.js"></script>
 </body>
 
 </html>
