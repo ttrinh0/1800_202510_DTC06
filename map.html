@@ -29,7 +29,7 @@
 
 </head>
 
-<body>
+<body class="bg-[#f6f5eb]">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
@@ -42,20 +42,22 @@
             <h1 class="text-2xl font-semibold ">Explore the Map!</h1>
         </div>
         <!-- Main Body -->
-        <main class="lg:flex lg:flex-row lg:px-6 h-dvh">
+        <main class="lg:flex lg:flex-row lg:px-6 h-dvh ">
             <div class="relative lg:static md:basis-3/4">
                 <div class="absolute top-0 z-999 p-2 px-4 m-4 bg-black/75 rounded-md text-white lg:hidden">
                     <h1 class="text-xl font-semibold">Explore the Map!</h1>
                 </div>
                 <!-- MAPBOX -->
-                <div id='map' class="h-[480px] lg:max-h-3/4 lg:h-[800px] absolute lg:static top-0 rounded-md">
+                <div id='map'
+                    class="h-[480px] lg:max-h-3/4 lg:h-[800px] absolute lg:static top-0 rounded-lg drop-shadow-xl border-2 border-black/10">
                 </div>
             </div>
             <!-- MAPCARD -->
-            <div class="lg:basis-1/4 p-6 m-4 lg:mr-0 lg:mt-0 lg:max-h-3/4 lg:h-[800px] bg-green-400 rounded-lg">
+            <div
+                class="lg:basis-1/4 p-6 m-4 lg:mr-0 lg:mt-0 lg:max-h-3/4 lg:h-[800px] bg-[#439189] rounded-lg drop-shadow-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title font-semibold mb-4 text-lg">Store</h5>
+                        <h5 class="card-title font-semibold mb-4 text-xl">Store</h5>
                         <div class="card-text">
                             <p class="mb-2">Address</p>
                             <p class="mb-4">Store description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -66,7 +68,7 @@
                                 <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
                             </div>
                             <button
-                                class="bg-green-900 text-white font-semibold border-green-950 p-2 px-4 mx-auto flex rounded-lg hover:bg-green-800">
+                                class="drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#f6d276] text-[#276861] border-[#f6d276] active:bg-green-700 hover:bg-[#3d8078] hover:text-[#fde8b2] cursor-pointer font-semibold hover:border-[#fde8b2]">
                                 Go to Store Page
                             </button>
                         </div>

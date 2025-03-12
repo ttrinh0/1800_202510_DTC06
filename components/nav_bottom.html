@@ -2,16 +2,16 @@
     <div id="navbot" class="flex justify-around">
 
         <a href="/main.html" class="hover:bg-[#5bb4ab] transition ">
-            <i class="fa-solid fa-house fa-lg p-8"></i></i>
+            <i class="fa-solid fa-house fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i></i>
         </a>
         <a href="/browse.html" class="hover:bg-[#5bb4ab] transition">
-            <i class="fa-solid fa-basket-shopping fa-lg p-8"></i>
+            <i class="fa-solid fa-basket-shopping fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i>
         </a>
         <a href="/map.html" class="hover:bg-[#5bb4ab] transition">
-            <i class="fa-solid fa-map-location-dot fa-lg p-8"></i>
+            <i class="fa-solid fa-map-location-dot fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i>
         </a>
         <a href="/account.html" class="hover:bg-[#5bb4ab] transition">
-            <i class="fa-solid fa-user fa-lg p-8"></i>
+            <i class="fa-solid fa-user fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i>
         </a>
     </div>
 </nav>
@@ -21,7 +21,7 @@
     console.log(current);
     document.querySelectorAll("#navbot a").forEach(function (elem) {
         if (elem.href.includes(current)) {
-            elem.classList.add("text-[#17554f]", "bg-[#63bbb2]", "rounded-md", "hover:bg-[#71d3c9]");
+            elem.classList.add("text-[#17554f]", "bg-[#63bbb2]", "hover:bg-[#71d3c9]");
         }
     });
 </script>
