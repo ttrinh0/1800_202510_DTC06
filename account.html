@@ -39,13 +39,13 @@
 
     <!-- Stuff for body goes here -->
 
-    <main class="h-dvh">
-        <navbar class="bg-slate-300 flex">
-            <page id="page1Btn" class="group basis-1/2 select-none cursor-pointer hover:bg-slate-100">
+    <main class="sm:h-250 lg:h-300">
+        <navbar class="bg-[#a8e9e2] flex">
+            <page id="page1Btn" class="group basis-1/2 select-none cursor-pointer hover:bg-[#5bb4ab]">
                 <h1 class="text-center py-4">Account Info</h1>
                 <hr class="border-2 invisible group-hover:visible">
             </page>
-            <page id="page2Btn" class="group basis-1/2 select-none cursor-pointer hover:bg-slate-100">
+            <page id="page2Btn" class="group basis-1/2 select-none cursor-pointer hover:bg-[#5bb4ab]">
                 <h1 class="text-center py-4">Favourites</h1>
                 <hr class="border-2 invisible group-hover:visible">
             </page>
@@ -62,26 +62,87 @@
                 <!-- ------------------------------ -->
                 <!-- PUT FIREBASE DATABASE IDs HERE -->
                 <!-- ------------------------------ -->
-                <content class="">
-                    <div id="userProfile" class="mt-10 flex flex-col ml-10 gap-5">
-                        <p class="text-2xl hidden">ID: <span id="user-id-goes-here"></span></p>
-                        <p class="text-2xl">Email: <span id="email-goes-here"></span></p>
-                        <p class="text-2xl">Name: <span id="user-name-firebase"></span></p>
-                        <p class="text-2xl">Country: <span id="country-goes-here"></span></p>
-                    </div>
-                    <div id="editAccountForm" class="hidden mt-10 ml-10">
-                            <label for="name">Name:</label>
-                            <input type="text" id="user-name-form" name="name" class="block w-1/2 p-2 border-2 border-gray-300 rounded-md">
-                            <label for="email">Email:</label>  
-                            <input type="email" id="user-email-form" name="email" class="block w-1/2 p-2 border-2 border-gray-300 rounded-md">
-                            <label for="country">Country:</label>
-                            <input type="text" id="user-country-form" name="country" class="block w-1/2 p-2 border-2 border-gray-300 rounded-md">
 
-                            <button id="saveAccount" onclick="submitButton()" class="rounded-full py-1 px-3 bg-gray-200 hover:bg-gray-300">Save</button>
+                <content class="flex justify-center">
+                    <div class="w-full max-w-lg p-6 bg-white shadow-lg rounded-lg mt-10">
+                        <div id="userProfile" class="flex flex-col gap-5">
+                            <p class="text-xl font-medium hidden">ID: <span id="user-id-goes-here"></span></p>
+
+                            <p class="text-xl font-semibold">Name: <br />
+                                <span class="text-gray-700 font-normal" id="user-name-firebase"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Email: <br />
+                                <span class="text-gray-700 font-normal" id="email-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Home Address: <br />
+                                <span class="text-gray-700 font-normal" id="address-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">City: <br />
+                                <span class="text-gray-700 font-normal" id="city-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Province/State: <br />
+                                <span class="text-gray-700 font-normal" id="province-state-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Postal/Zip Code: <br />
+                                <span class="text-gray-700 font-normal" id="postal-zip-goes-here">
+                                </span>
+                            </p>
+                            <p class="text-xl font-semibold">Country: <br />
+                                <span class="text-gray-700 font-normal" id="country-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Phone Number: <br />
+                                <span class="text-gray-700 font-normal" id="phone-goes-here"></span>
+                            </p>
+                        </div>
+
+                        <!--EDIT ACCOUNT INFORMATION-->
+                        <div id="editAccountForm" class="hidden mt-8 p-4 bg-white rounded-lg shadow">
+                            <label for="name" class="block text-gray-700 font-medium mb-1">Name:</label>
+                            <input type="text" id="user-name-form" name="name"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="homeAddress" class="block text-gray-700 font-medium mt-3 mb-1">Home
+                                Address:</label>
+                            <input type="text" id="user-home-address-form" name="home-address"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="city" class="block text-gray-700 font-medium mt-3 mb-1">City:</label>
+                            <input type="text" id="user-city-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="province/state"
+                                class="block text-gray-700 font-medium mt-3 mb-1">Province/State:</label>
+                            <input type="text" id="user-province-state-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="postal/zip" class="block text-gray-700 font-medium mt-3 mb-1">Postal/Zip
+                                Code:</label>
+                            <input type="text" id="user-postal-zip-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="country" class="block text-gray-700 font-medium mt-3 mb-1">Country:</label>
+                            <input type="text" id="user-country-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="phone" class="block text-gray-700 font-medium mt-3 mb-1">Phone Number:</label>
+                            <input type="text" id="user-phone-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <button id="saveAccount" onclick="submitButton()"
+                                class="mt-4 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition">
+                                Save
+                            </button>
+                        </div>
+
+                        <div class="mt-6 text-center">
+                            <button id="editAccountButton"
+                                class="bg-gray-200 text-gray-800 font-medium py-2 px-6 rounded-lg hover:bg-gray-300 transition">
+                                Edit Account
+                            </button>
+                        </div>
                     </div>
-                    <button id="editAccountButton" class="rounded-full py-1 px-3 bg-gray-200 hover:bg-gray-300">Edit Account</button>
-                    
                 </content>
+
             </accountinfo>
 
             <favourites id="page2" class="hidden">
