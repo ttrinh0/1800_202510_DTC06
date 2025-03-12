@@ -42,7 +42,7 @@ function addStorePins(map) {
     // READING information from "events" collection in Firestore
     db.collection('stores').get().then(allEvents => {
         const features = []; // Defines an empty array for information to be added to
-
+        console.log
         allEvents.forEach(doc => {
             // Extract coordinates of the place
             coordinates = [doc.data().lng, doc.data().lat];
@@ -85,7 +85,7 @@ function addStorePins(map) {
             'type': 'circle', // what the pins/markers/points look like
             'source': 'places',
             'paint': {   // customize colour and size
-                'circle-color': '#4264fb',
+                'circle-color': '#55AD9B',
                 'circle-radius': 6,
                 'circle-stroke-width': 2,
                 'circle-stroke-color': '#ffffff'
