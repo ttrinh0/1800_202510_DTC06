@@ -1,17 +1,27 @@
-<nav class="block md:hidden bg-slate-300">
-    <div class="flex justify-around py-2">
+<nav id="nav_bot_outer" class="block md:hidden bg-[#439189]">
+    <div id="navbot" class="flex justify-around">
 
-        <a href="#">
-            <i class="fa-solid fa-house p-4"></i>
+        <a href="/main.html" class="hover:bg-[#5bb4ab] transition ">
+            <i class="fa-solid fa-house fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i></i>
         </a>
-        <a href="/browse.html">
-            <i class="fa-solid fa-basket-shopping p-4"></i>
+        <a href="/browse.html" class="hover:bg-[#5bb4ab] transition">
+            <i class="fa-solid fa-basket-shopping fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i>
         </a>
-        <a href="#">
-            <i class="fa-solid fa-map-location-dot p-4"></i>
+        <a href="/map.html" class="hover:bg-[#5bb4ab] transition">
+            <i class="fa-solid fa-map-location-dot fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i>
         </a>
-        <a href="#">
-            <i class="fa-solid fa-user p-4"></i>
+        <a href="/account.html" class="hover:bg-[#5bb4ab] transition">
+            <i class="fa-solid fa-user fa-lg p-8 text-[#fde8b2] drop-shadow-sm"></i>
         </a>
     </div>
 </nav>
+
+<script>
+    let current = window.location.pathname;
+    console.log(current);
+    document.querySelectorAll("#navbot a").forEach(function (elem) {
+        if (elem.href.includes(current)) {
+            elem.classList.add("text-[#17554f]", "bg-[#63bbb2]", "hover:bg-[#71d3c9]");
+        }
+    });
+</script>

@@ -1,17 +1,35 @@
+<!-- Sidebar -->
+<div class="fixed left-0 h-full bg-white w-[200px] border-r-2 border-slate-300" style="display:none" id="sidebar">
+    <div class="flex flex-col text-center">
+        <button onclick="navClose()" class="cursor-pointer mr-auto p-3 mx-3 mt-2"><i
+                class="fa-solid fa-xmark fa-lg drop-shadow-sm"></i></button>
+        <a href="/main.html" class="text-lg px-6 py-2 hover:bg-[#c2e9e5]">Home</a>
+        <a href="/browse.html" class="text-lg px-6 py-2 hover:bg-[#c2e9e5]">Browse</a>
+        <a href="/map.html" class="text-lg px-6 py-2 hover:bg-[#c2e9e5]">Map</a>
+        <a href="/account.html" class="text-lg px-6 py-2 hover:bg-[#c2e9e5]">Account</a>
+        <hr class="text-slate-300 my-2">
+        <a href="/login.html" class="text-lg px-6 py-2 hover:bg-[#c2e9e5]">Signup</a>
+        <a href="/login.html" class="text-lg px-6 py-2 hover:bg-[#c2e9e5]">Login</a>
+    </div>
+</div>
 
-    <nav class="flex justify-between py-3 px-6 bg-slate-300">
-        <a href="#" class="my-auto">
-            <i class="fa-solid fa-utensils"></i>
+<!-- Navbar  -->
+<nav class="flex justify-between py-3 px-6 bg-[#439189]">
+    <div class="my-auto">
+        <button class="hidden md:inline mr-6 cursor-pointer" onclick="navOpen()">
+            <i class="drop-shadow-sm fa-solid fa-bars fa-lg text-[#fde8b2]"></i></button>
+        <a href="/main.html">
+            <i class="drop-shadow-sm fa-solid fa-utensils fa-lg text-[#fde8b2]"></i>
         </a>
+    </div>
 
-        <div class="my-2">
-            <a href="login.html"
-                class="border rounded-md py-2 px-3 mr-2 text-green-800 cursor-pointer active:bg-green-300 hover:bg-green-800 hover:text-white"
-                role="button">Login</a>
+    <div class="my-2">
+        <a href="login.html"
+            class="drop-shadow-sm border-2 rounded-md py-2 px-3 mr-2 bg-[#439189] text-[#f6d276] cursor-pointer active:bg-green-300 hover:bg-[#fde8b2] hover:border-[#fde8b2] hover:text-[#276861] font-semibold"
+            role="button">Login</a>
 
-            <a href="login.html"
-                class="border rounded-md py-2 px-3 bg-green-800 text-white border-green-800 active:bg-green-700 hover:bg-green-300 hover:text-black cursor-pointer"
-                role="button">Signup</a>
-
-        </div>
-    </nav>
+        <a href="login.html"
+            class="drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#f6d276] text-[#276861] border-[#f6d276] active:bg-green-700 hover:bg-[#3d8078] hover:text-[#fde8b2] cursor-pointer font-semibold hover:border-[#fde8b2]"
+            role="button">Signup</a>
+    </div>
+</nav>

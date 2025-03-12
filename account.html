@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SecondServe</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Other libraries go here -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/dd6ea4ec65.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+</head>
+
+<body class="bg-[#f6f5eb]">
+    <!------------------------------>
+    <!-- Your HTML Layout go here -->
+    <!------------------------------>
+    <!-- TOP NAV -->
+    <nav id="navbarTop" class="sticky top-0 z-999"></nav>
+
+    <!-- Stuff for body goes here -->
+
+    <main class="sm:h-250 lg:h-300">
+        <navbar class="bg-[#a8e9e2] flex">
+            <page id="page1Btn"
+                class="group basis-1/2 select-none cursor-pointer hover:bg-[#5bb4ab] transition border-r-1 border-black/15">
+                <h1 class="text-lg text-center py-4">Account Info</h1>
+                <hr class="border-2 invisible group-hover:visible">
+            </page>
+            <page id="page2Btn" class="group basis-1/2 select-none cursor-pointer hover:bg-[#5bb4ab] transition">
+                <h1 class="text-lg text-center py-4">Favourites</h1>
+                <hr class="border-2 invisible group-hover:visible">
+            </page>
+        </navbar>
+
+        <section class="pt-2 pb-8 md:px-6 2xl:max-w-screen-2xl 2xl:mx-auto">
+            <accountinfo id="page1" class="block">
+                <greeting class="container-fluid p-5">
+                    <div class="container px-6 md:px-0">
+                        <h1 class="text-2xl">Hi, <span id="name-goes-here"></span></h1>
+                    </div>
+                </greeting>
+
+                <!-- ------------------------------ -->
+                <!-- PUT FIREBASE DATABASE IDs HERE -->
+                <!-- ------------------------------ -->
+
+                <content class="flex justify-center">
+                    <div class="w-full max-w-lg p-6 bg-white rounded-lg drop-shadow-xl mt-10">
+                        <div id="userProfile" class="flex flex-col gap-5">
+                            <p class="text-xl font-medium hidden">ID: <span id="user-id-goes-here"></span></p>
+
+                            <p class="text-xl font-semibold">Name: <br />
+                                <span class="text-gray-700 font-normal" id="user-name-firebase"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Email: <br />
+                                <span class="text-gray-700 font-normal" id="email-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Home Address: <br />
+                                <span class="text-gray-700 font-normal" id="address-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">City: <br />
+                                <span class="text-gray-700 font-normal" id="city-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Province/State: <br />
+                                <span class="text-gray-700 font-normal" id="province-state-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Postal/Zip Code: <br />
+                                <span class="text-gray-700 font-normal" id="postal-zip-goes-here">
+                                </span>
+                            </p>
+                            <p class="text-xl font-semibold">Country: <br />
+                                <span class="text-gray-700 font-normal" id="country-goes-here"></span>
+                            </p>
+                            <p class="text-xl font-semibold">Phone Number: <br />
+                                <span class="text-gray-700 font-normal" id="phone-goes-here"></span>
+                            </p>
+                        </div>
+
+                        <!--EDIT ACCOUNT INFORMATION-->
+                        <div id="editAccountForm" class="hidden mt-8 p-4 bg-white rounded-lg shadow">
+                            <label for="name" class="block text-gray-700 font-medium mb-1">Name:</label>
+                            <input type="text" id="user-name-form" name="name"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="homeAddress" class="block text-gray-700 font-medium mt-3 mb-1">Home
+                                Address:</label>
+                            <input type="text" id="user-home-address-form" name="home-address"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="city" class="block text-gray-700 font-medium mt-3 mb-1">City:</label>
+                            <input type="text" id="user-city-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="province/state"
+                                class="block text-gray-700 font-medium mt-3 mb-1">Province/State:</label>
+                            <input type="text" id="user-province-state-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="postal/zip" class="block text-gray-700 font-medium mt-3 mb-1">Postal/Zip
+                                Code:</label>
+                            <input type="text" id="user-postal-zip-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="country" class="block text-gray-700 font-medium mt-3 mb-1">Country:</label>
+                            <input type="text" id="user-country-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <label for="phone" class="block text-gray-700 font-medium mt-3 mb-1">Phone Number:</label>
+                            <input type="text" id="user-phone-form" name="country"
+                                class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+
+                            <button id="saveAccount" onclick="submitButton()"
+                                class="mt-4 w-full bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition">
+                                Save
+                            </button>
+                        </div>
+
+                        <div class="mt-6 text-center">
+                            <button id="editAccountButton"
+                                class="bg-gray-200 text-gray-800 font-medium py-2 px-6 rounded-lg hover:bg-gray-300 transition">
+                                Edit Account
+                            </button>
+                        </div>
+                    </div>
+                </content>
+
+            </accountinfo>
+
+            <favourites id="page2" class="hidden">
+                <h1 class="pt-6 px-6 md:px-0 mb-6 text-black text-2xl">Here are your favourite stores:</h1>
+                <div id="store_carousel"></div>
+            </favourites>
+        </section>
+    </main>
+
+
+
+    <!-- BOTTOM NAV -->
+    <nav id="navbarBottom" class="sticky bottom-0"></nav>
+    <!-- FOOTER -->
+    <nav id="footer"></nav>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_dtc06.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/account.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/nav.js"></script>
+
+</body>
+
+</html>

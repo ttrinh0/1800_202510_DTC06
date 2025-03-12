@@ -32,29 +32,27 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- TOP NAV -->
-    <nav id="navbarTop" class="sticky top-0"></nav>
+
+
+    <nav id="navbarTop" class="sticky top-0 z-999"></nav>
 
     <!-- Stuff for body goes here -->
 
-
-    <div class="text-center p-10 h-dvh">
-        <h1 class="font-bold tracking-wide text-4xl  mb-8">Welcome to SecondServe</h1>
-        <p class=" text-xl mb-10">Connecting businesses with individuals and offering food surplus at a discounted
-            price to help individuals and food businesses reduce food waste.
-        </p>
-        <div class="flex justify-center">
-            <div class="mx-5">
-                <input type="text" placeholder="Enter Address"
-                    class="w-full  p-2 pr-60 border  rounded-md focus:ring-2">
+    <section class="pb-16 2xl:max-w-screen-2xl 2xl:mx-auto min-h-[calc(100vh-64px-64px)] flex flex-col">
+        <article class="p-6 flex flex-col flex-grow">
+            <div class="flex justify-between">
+                <h1 class="text-2xl font-semibold mb-4">Cart</h1>
+                <a href="/orders.html" id="orderHistory"
+                    class="rounded-lg py-3 px-3 bg-gray-200 hover:bg-gray-300">Order
+                    History</a>
             </div>
-            <div>
-                <button class="w-full text-white bg-green-800 p-2 rounded-md hover:bg-green-400 hover:text-black active:bg-green-700">
-                    Search
-                </button>
+            <div id="cart" class="flex flex-col items-center justify-center flex-grow">
+                <i class="fa-solid fa-cart-shopping text-3xl"></i>
+                <h4 class="font-semibold text-lg pt-5">Your cart is empty</h4>
+                <p class="text-center">Once you add items from a restaurant or store, your cart will appear here.</p>
             </div>
-        </div>
-    </div>
-    
+        </article>
+    </section>
 
 
     <!-- BOTTOM NAV -->
@@ -68,9 +66,6 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/nav.js"></script>
-    <script>
-        logout();       //make sure user is logged out
-    </script>
 </body>
 
 </html>
