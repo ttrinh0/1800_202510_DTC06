@@ -15,8 +15,7 @@ function logout() {
 // Load carousel html components into other html
 //-------------------------------------------------
 function Carousel() {
-    console.log($('.storeCarousel').load('./components/store_carousel.html'));
+    console.log($('.storeCarousel').load('./components/store_carousel.html'))
     console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
 }
-
 Carousel();
