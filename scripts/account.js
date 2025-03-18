@@ -240,8 +240,8 @@ page2Btn.addEventListener('click', () => {
     page1.classList.add('hidden',);
     page2.classList.remove('hidden');
     page2.classList.add('block');
-    carousel.classList.add('storeCarousel');
-    Carousel()
+    carousel.classList.add('favouritesCarousel');
+    favourites();
 
 
     // Change bg colour of btns
