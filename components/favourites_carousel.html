@@ -1,23 +1,26 @@
-<article id="stores-go-here" class="flex md:flex-row flex-col justify-around">
+<article id="stores-go-here" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
 
 </article>
 
 <template id="storeCardTemplate">
     <!-- CARD  -->
     <!-- BG IMAGE  -->
-    <div class="relative mx-auto md:mx-2 my-2 md:my-0 rounded-md md:w-[400px] w-fit overflow-hidden drop-shadow-md">
+
+    <div class="mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md">
         <img src="/images/cafe.jpg" class="absolute -z-10 object-cover object-center">
 
         <!-- TEXT  -->
         <div class="text-white transition-all group">
             <div
-                class="mt-10 bg-black/60 border-black p-4 pt-2 pb-6 md:translate-y-28 md:group-hover:translate-y-0 md:transition">
+                class="mt-10 bg-black/60 border-black p-4 pt-2 pb-6 md:translate-y-40 md:group-hover:translate-y-0 md:transition">
                 <div class="flex justify-between">
                     <h1 class="card-title text-lg font-semibold">Store Name</h1>
-                    <h3 class="font-semibold text-right">3 Offers Left</h3>
+                    <h3 class="font-semibold text-right basis-2/5">3 Offers Left</h3>
                 </div>
                 <hr class="my-2 opacity-30">
-                <p class="card-address my-2">Address</p>
+                <p
+                    class="card-address my-2 md:transition-all md:opacity-0 md:group-hover:opacity-100 md:invisible md:group-hover:visible">
+                    Address</p>
                 <p
                     class="card-text mt-2 mb-6 text-sm/tight opacity-80 md:transition-all md:opacity-0 md:group-hover:opacity-80 md:invisible md:group-hover:visible">
                     Store desc: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
