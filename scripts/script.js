@@ -19,3 +19,13 @@ function Carousel() {
     console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
 }
 Carousel();
+
+//------------------------------------------------
+// Load favourites carousel html components into other html
+//-------------------------------------------------
+function favourites() {
+    console.log($('.favouritesCarousel').load('./components/favourites_carousel.html'));
+    console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
+}
+
+favourites();
