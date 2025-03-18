@@ -41,13 +41,14 @@ function displayCardsDynamically(collection) {
                     if (bookmarks && bookmarks.includes(docID)) {
                         var title = doc.data().name;
                         var details = doc.data().details;
-                        // var storeCode = doc.data().code;
+                        var storeCode = doc.data().code;
                         var storeAddress = doc.data().address;
                         // var storeType = doc.data().storetype;
                         let newcard = cardTemplate.content.cloneNode(true);
                         newcard.querySelector('.card-title').innerHTML = title;
                         newcard.querySelector('.card-text').innerHTML = details;
                         newcard.querySelector('.card-address').innerHTML = storeAddress;
+                        newcard.querySelector('.card-image').src = `./images/${storeCode}.jpg`;
                         newcard.querySelector('i').id = 'fave-' + docID;   //guaranteed to be unique
                         newcard.querySelector('i').onclick = () => updateBookmark(docID);
                         let faveIcon = newcard.querySelector('i'); // Reference the element directly
@@ -56,7 +57,7 @@ function displayCardsDynamically(collection) {
                         document.getElementById(collection + "-go-here").appendChild(newcard);
                     }
                 })
-                // newcard.querySelector('.card-image').src = `./images/${storeCode}.jpg`;
+
 
             })
         })
