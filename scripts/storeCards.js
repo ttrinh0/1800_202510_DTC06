@@ -1,6 +1,3 @@
-
-
-
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("storeCardTemplate");
     db.collection(collection).get()
@@ -19,7 +16,6 @@ function displayCardsDynamically(collection) {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             })
         })
-
 }
 
 displayCardsDynamically("stores");
