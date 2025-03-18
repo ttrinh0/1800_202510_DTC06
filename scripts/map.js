@@ -40,89 +40,129 @@ showMap();   // Call it!
 function addStorePins(map) {
 
     // READING information from "events" collection in Firestore
-    db.collection('stores').get().then(allEvents => {
-        const features = []; // Defines an empty array for information to be added to
-        console.log
-        allEvents.forEach(doc => {
-            // Extract coordinates of the place
-            coordinates = [doc.data().lng, doc.data().lat];
-            console.log(coordinates);
-            // Extract other addition fields that you want etc.
-            event_name = doc.data().name; // Event Name
-            preview = doc.data().details; // Text Preview
-            // img = doc.data().posterurl; // Image
-            // url = doc.data().link; // URL
+    db.collection('stores').get()
+        .then(allEvents => {
+            const features = []; // Defines an empty array for information to be added to
+            const cards = [];
+            console.log
+            allEvents.forEach(doc => {
+                // Extract coordinates of the place
+                coordinates = [doc.data().lng, doc.data().lat];
+                console.log(coordinates);
+                // Extract other addition fields that you want etc.
+                storeName = doc.data().name; // Event Name
+                desc = doc.data().details; // Text Preview
+                storeAddress = doc.data().address; // Text Preview
+                // img = doc.data().posterurl; // Image
+                // url = doc.data().link; // URL
+                console.log("hello", storeAddress)
 
-            // Push information (properties, geometry) into the features array
-            features.push({
-                'type': 'Feature',
-                'properties': {
-                    'description': `<strong>${event_name}</strong><p>${preview}</p> 
+
+                let result = document.getElementById("mapcard")
+                mapCardDiv = `
+                    <div
+                        class="lg:basis-1/4 p-6 m-4 lg:mr-0 lg:mt-0 lg:max-h-3/4 lg:h-[800px] bg-[#439189] rounded-lg drop-shadow-xl">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title font-semibold mb-4 text-xl">${storeName}</h5>
+                                <div class="card-text">
+                                    <p class="mb-2">${storeAddress}</p>
+                                    <p class="mb-4">${desc}
+                                    </p>
+                                    <div class="flex flex-col my-6">
+                                        <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
+                                        <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
+                                    </div>
+                                    <button
+                                        class="drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#f6d276] text-[#276861] border-[#f6d276] active:bg-green-700 hover:bg-[#3d8078] hover:text-[#fde8b2] cursor-pointer font-semibold hover:border-[#fde8b2]">
+                                        Go to Store Page
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                // result.innerHTML = mapCardDiv
+
+
+
+
+                // Push information (properties, geometry) into the features array
+                features.push({
+                    'type': 'Feature',
+                    'properties': {
+                        'description': `<strong>${storeName}</strong><p>${desc}</p> 
                             <br> <a href="/hike.html?id=${doc.id}" target="_blank" 
                             title="Opens in a new window">Read more</a>`
-                },
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': coordinates
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': coordinates
+                    },
+                    'storeCard': `${storeName}`
+                });
+
+
+
+            });
+
+            // Adds features (in our case, pins) to the map
+            // "places" is the name of this array of features
+            map.addSource('places', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': features
                 }
             });
+
+            // Creates a layer above the map displaying the pins
+            // Add a layer showing the places.
+            map.addLayer({
+                'id': 'places',
+                'type': 'circle', // what the pins/markers/points look like
+                'source': 'places',
+                'paint': {   // customize colour and size
+                    'circle-color': '#55AD9B',
+                    'circle-radius': 6,
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#ffffff'
+                }
+            });
+
+            // When one of the "places" markers are clicked,
+            // create a popup that shows information 
+            // Everything related to a marker is save in features[] array
+            map.on('click', 'places', (e) => {
+                // Copy coordinates array.
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const description = e.features[0].properties.description;
+                // Ensure that if the map is zoomed out such that multiple 
+                // copies of the feature are visible, the popup appears over 
+                // the copy being pointed to.
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+
+                new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+                console.log("hi", e, allEvents)
+
+            });
+
+
+            // Change the cursor to a pointer when the mouse hovers over the places layer.
+            map.on('mouseenter', 'places', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Defaults cursor when not hovering over the places layer
+            map.on('mouseleave', 'places', () => {
+                map.getCanvas().style.cursor = '';
+            });
         });
-
-        // Adds features (in our case, pins) to the map
-        // "places" is the name of this array of features
-        map.addSource('places', {
-            'type': 'geojson',
-            'data': {
-                'type': 'FeatureCollection',
-                'features': features
-            }
-        });
-
-        // Creates a layer above the map displaying the pins
-        // Add a layer showing the places.
-        map.addLayer({
-            'id': 'places',
-            'type': 'circle', // what the pins/markers/points look like
-            'source': 'places',
-            'paint': {   // customize colour and size
-                'circle-color': '#55AD9B',
-                'circle-radius': 6,
-                'circle-stroke-width': 2,
-                'circle-stroke-color': '#ffffff'
-            }
-        });
-
-        // When one of the "places" markers are clicked,
-        // create a popup that shows information 
-        // Everything related to a marker is save in features[] array
-        map.on('click', 'places', (e) => {
-            // Copy coordinates array.
-            const coordinates = e.features[0].geometry.coordinates.slice();
-            const description = e.features[0].properties.description;
-
-            // Ensure that if the map is zoomed out such that multiple 
-            // copies of the feature are visible, the popup appears over 
-            // the copy being pointed to.
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-
-            new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(description)
-                .addTo(map);
-        });
-
-        // Change the cursor to a pointer when the mouse hovers over the places layer.
-        map.on('mouseenter', 'places', () => {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-
-        // Defaults cursor when not hovering over the places layer
-        map.on('mouseleave', 'places', () => {
-            map.getCanvas().style.cursor = '';
-        });
-    });
 }
 
 
@@ -194,4 +234,32 @@ function addUserPin(map) {
             });
         }
     });
+}
+
+function addMapCard() {
+    result = document.getElementById("mapcard")
+    mapCardDiv = `
+        <div
+            class="lg:basis-1/4 p-6 m-4 lg:mr-0 lg:mt-0 lg:max-h-3/4 lg:h-[800px] bg-[#439189] rounded-lg drop-shadow-xl">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title font-semibold mb-4 text-xl">${storeName}</h5>
+                    <div class="card-text">
+                        <p class="mb-2">${storeAddress}</p>
+                        <p class="mb-4">${desc}
+                        </p>
+                        <div class="flex flex-col my-6">
+                            <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
+                            <div class="bg-white p-6 m-2 lg:mx-0">Product card maybe</div>
+                        </div>
+                        <button
+                            class="drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#f6d276] text-[#276861] border-[#f6d276] active:bg-green-700 hover:bg-[#3d8078] hover:text-[#fde8b2] cursor-pointer font-semibold hover:border-[#fde8b2]">
+                            Go to Store Page
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    result.innerHTML = mapCardDiv
 }
