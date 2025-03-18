@@ -28,9 +28,10 @@ function updateBookmark(storeDocID) {
 }
 
 
+
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("storeCardTemplate");
-    db.collection(collection).get()
+    db.collection(collection).limit(3).get()
         .then(allStores => {
             allStores.forEach(doc => {
                 var title = doc.data().name;
@@ -59,6 +60,24 @@ function displayCardsDynamically(collection) {
 
 }
 
+function displayProductCardsDynamically(collection) {
+    let cardTemplate = document.getElementById("storeProductCardTemplate");
+    db.collection(collection).limit(4).get()
+        .then(allStores => {
+            allStores.forEach(doc => {
+                var title = doc.data().name;
+                var storeCode = doc.data().code;
+                var storeAddress = doc.data().address;
+                // var storeType = doc.data().storetype;
+                let newcard = cardTemplate.content.cloneNode(true);
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.card-address').innerHTML = storeAddress;
+                newcard.querySelector('.card-image').src = `./images/${storeCode}.jpg`;
+                document.getElementById("stores-products-go-here").appendChild(newcard);
+            })
+        })
+
+}
 
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
@@ -68,6 +87,7 @@ function doAll() {
 
             // the following functions are always called when someone is logged in
             displayCardsDynamically("stores");
+            displayProductCardsDynamically("stores");
             // saveBookmark();
 
         } else {

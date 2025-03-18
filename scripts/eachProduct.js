@@ -1,11 +1,12 @@
 function writeProducts() {
     //define a variable for the collection you want to create in Firestore to populate data
-    
+
     const cafeLocations = ["H805KLm1ZWGvQ2QCdd2N", "nr9WjToY7qNgEOQNB7Gg"]
     for (i in cafeLocations) {
         var cafeRef = db.collection("stores").doc(cafeLocations[i]).collection("products");
 
         cafeRef.doc("Donut").set({
+            store: "Tim Hortons",
             code: "c_donut",
             name: "Donut",
             price_before: 2.00,
@@ -14,6 +15,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Cookie").set({
+            store: "Tim Hortons",
             code: "c_cookie",
             name: "Cookie",
             price_before: 2.00,
@@ -22,6 +24,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Muffin").set({
+            store: "Tim Hortons",
             code: "c_muffin",
             name: "Muffin",
             price_before: 2.50,
@@ -30,6 +33,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Bagel").set({
+            store: "Tim Hortons",
             code: "c_bagel",
             name: "Bagel",
             price_before: 2.25,
@@ -44,6 +48,7 @@ function writeProducts() {
         var cafeRef = db.collection("stores").doc(groceryLocations[i]).collection("products");
 
         cafeRef.doc("Apple").set({
+            store: "Save-on-Foods",
             code: "g_apple",
             name: "Apple",
             price_before: 3.50,
@@ -52,6 +57,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Orange").set({
+            store: "Save-on-Foods",
             code: "g_orange",
             name: "Orange",
             price_before: 3.75,
@@ -60,6 +66,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Cereal").set({
+            store: "Save-on-Foods",
             code: "g_cereal",
             name: "Cereal",
             price_before: 5.99,
@@ -68,6 +75,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Bread").set({
+            store: "Save-on-Foods",
             code: "g_bread",
             name: "Bread",
             price_before: 3.99,
@@ -82,6 +90,7 @@ function writeProducts() {
         var cafeRef = db.collection("stores").doc(restaurantLocations[i]).collection("products");
 
         cafeRef.doc("Meal Set").set({
+            store: "Jollibee",
             code: "r_meal_set",
             name: "Meal Set",
             price_before: 12.50,
@@ -90,6 +99,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Sandwich").set({
+            store: "Jollibee",
             code: "r_sandwich",
             name: "Sandwich",
             price_before: 5.50,
@@ -98,6 +108,7 @@ function writeProducts() {
             last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
         });
         cafeRef.doc("Fries").set({
+            store: "Jollibee",
             code: "r_fries",
             name: "Fries",
             price_before: 1.50,
