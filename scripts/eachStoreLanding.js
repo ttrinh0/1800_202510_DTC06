@@ -5,18 +5,18 @@ function displayStoreInfo() {
 
     // doublecheck: is your collection called "Reviews" or "reviews"?
     // spelling matters
-    db.collection("hikes")
+    db.collection("stores")
         .doc(ID)
         .get()
         .then(doc => {
             // thisHike = doc.data();
             // hikeCode = thisHike.code;
-            hikeName = doc.data().name;
+            storeName = doc.data().name;
 
             // only populate title, and image
-            document.getElementById("hikeName").innerHTML = hikeName;
+            document.getElementById("storeName").innerHTML = storeName;
             // let imgEvent = document.querySelector(".hike-img");
             // imgEvent.src = "../images/" + hikeCode + ".jpg";
         });
 }
-displayHikeInfo();
+displayStoreInfo();
