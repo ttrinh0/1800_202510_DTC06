@@ -16,6 +16,7 @@ function logout() {
 //-------------------------------------------------
 function Carousel() {
     console.log($('.storeCarousel').load('./components/store_carousel.html'))
+    console.log($('.storeCards').load('./components/store_page_stores.html'))
     console.log($('.storeProductCarousel').load('./components/store_product_carousel.html'));
 }
 Carousel();
