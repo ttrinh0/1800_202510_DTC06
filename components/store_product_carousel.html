@@ -5,17 +5,21 @@
 <template id="storeProductCardTemplate">
     <!-- CARD  -->
     <!-- BG IMAGE  -->
-    <div
-        class="relative mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md hover:brightness-90 brightness-100 transition">
+    <div class="relative mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md">
         <!-- PRODUCT ITEMS  -->
         <div class="flex">
-            <div class="bg-white w-11/12 m-4 p-4 pb-2 rounded-md text-lg mx-auto border-2 border-black/10">
-                <p class="card-title">Item name</p>
+            <div
+                class="bg-white w-11/12 m-4 p-4 pb-2 rounded-md text-lg mx-auto border-2 border-black/10 hover:bg-black/5 transition">
+                <div class="flex justify-between p-2 bg-white hover:cursor-pointer rounded-xl">
+                    <p class="card-title">Item name</p>
+                    <i class="fa-lg fa-solid fa-plus flex my-auto hover:cursor-pointer"></i>
+                </div>
                 <hr class="my-2 opacity-30">
                 <p class="store-title text-base opacity-75">Store</p>
                 <p class="text-sm opacity-75 mb-2">Get it before: <span class="time">time</span></p>
                 <div class="overflow-hidden h-[150px] rounded-md">
-                    <img src="https://picsum.photos/599/599" alt="" class="card-image object-cover object-center">
+                    <img src="https://picsum.photos/599/599" alt=""
+                        class="w-full card-image object-cover object-center">
                 </div>
                 <hr class="mt-2 opacity-30">
                 <h3 class="font-semibold text-center"><s class="opacity-75">$<span class="p_before">10.00</s> → $<span
