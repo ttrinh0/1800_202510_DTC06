@@ -86,4 +86,4 @@ function writeStores() {
         storetype: "grocery"
     });
 }
-// writeStores();
+// writeStores(); Uncomment to create more store listings
