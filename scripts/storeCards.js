@@ -94,10 +94,10 @@ function displayCardsDynamicallyStorePage(collection) {
 }
 
 
-function displayProductCardsDynamically(collection) {
+function displayProductCardsDynamically(storeID) {
 
     let cardTemplate = document.getElementById("storeProductCardTemplate");
-    db.collection("stores").doc("H805KLm1ZWGvQ2QCdd2N").collection("products").limit(4).get()
+    db.collection("stores").doc(storeID).collection("products").limit(4).get()
         .then(allStores => {
             allStores.forEach(doc => {
                 var title = doc.data().name;
@@ -127,7 +127,7 @@ function doAll() {
             // the following functions are always called when someone is logged in
             displayCardsDynamically("stores");
             displayCardsDynamicallyStorePage("stores");
-            displayProductCardsDynamically("stores");
+            displayProductCardsDynamically("H805KLm1ZWGvQ2QCdd2N");
             // saveBookmark();
 
         } else {
