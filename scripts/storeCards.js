@@ -44,6 +44,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-text').innerHTML = details;
                 newcard.querySelector('.card-address').innerHTML = storeAddress;
+                newcard.querySelector('a').href = "eachStoreLanding.html?docID=" + docID;
                 newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
                 newcard.querySelector('i').onclick = () => updateBookmark(docID);
                 currentUser.get().then(userDoc => {
