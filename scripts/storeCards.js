@@ -61,22 +61,27 @@ function displayCardsDynamically(collection) {
 }
 
 function displayProductCardsDynamically(collection) {
+
     let cardTemplate = document.getElementById("storeProductCardTemplate");
-    db.collection(collection).limit(4).get()
+    db.collection("stores").doc("H805KLm1ZWGvQ2QCdd2N").collection("products").limit(4).get()
         .then(allStores => {
             allStores.forEach(doc => {
                 var title = doc.data().name;
-                var storeCode = doc.data().code;
-                var storeAddress = doc.data().address;
-                // var storeType = doc.data().storetype;
+                var store = doc.data().store;
+                var timeget = doc.data().time;
+                var p_before = doc.data().price_before.toFixed(2)
+                var p_after = doc.data().price_after.toFixed(2)
+                var itemCode = doc.data().code;
                 let newcard = cardTemplate.content.cloneNode(true);
                 newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-address').innerHTML = storeAddress;
-                newcard.querySelector('.card-image').src = `./images/${storeCode}.jpg`;
+                newcard.querySelector('.time').innerHTML = timeget;
+                newcard.querySelector('.store-title').innerHTML = store;
+                newcard.querySelector('.p_before').innerHTML = p_before;
+                newcard.querySelector('.p_after').innerHTML = p_after;
+                newcard.querySelector('.card-image').src = `./images/${itemCode}.jpg`;
                 document.getElementById("stores-products-go-here").appendChild(newcard);
             })
         })
-
 }
 
 function doAll() {

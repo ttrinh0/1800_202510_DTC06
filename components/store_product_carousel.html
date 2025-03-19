@@ -5,28 +5,20 @@
 <template id="storeProductCardTemplate">
     <!-- CARD  -->
     <!-- BG IMAGE  -->
-    <div class="relative mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md ">
-        <img src="/images/cafe.jpg" class="card-image absolute -z-10 object-fill object-center brightness-50">
-
-        <!-- TEXT  -->
-        <div class="text-white group drop-shadow-sm">
-            <div class="p-4 py-2">
-                <div class="flex justify-between">
-                    <h1 class="card-title text-lg font-semibold">Store Name</h1>
-                </div>
-                <p class="card-address text-sm/tight opacity-80">Address</p>
-            </div>
-        </div>
+    <div class="relative mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md">
         <!-- PRODUCT ITEMS  -->
         <div class="flex">
-            <div class="bg-white w-11/12 m-4 p-4 pb-2 rounded-md text-lg  mx-auto">
-                <p class="product-title">Item name</p>
-                <p class="text-sm opacity-75 mb-2">Get it before: time</p>
+            <div class="bg-white w-11/12 m-4 p-4 pb-2 rounded-md text-lg mx-auto border-2 border-black/10">
+                <p class="card-title">Item name</p>
+                <hr class="my-2 opacity-30">
+                <p class="store-title text-base opacity-75">Store</p>
+                <p class="text-sm opacity-75 mb-2">Get it before: <span class="time">time</span></p>
                 <div class="overflow-hidden h-[150px] rounded-md">
-                    <img src="https://picsum.photos/599/599" alt="" class="object-cover object-center">
+                    <img src="https://picsum.photos/599/599" alt="" class="card-image object-cover object-center">
                 </div>
                 <hr class="mt-2 opacity-30">
-                <h3 class="font-semibold text-center"><s class="opacity-75">$10.00</s> → $5.00</h3>
+                <h3 class="font-semibold text-center"><s class="opacity-75">$<span class="p_before">10.00</s> → $<span
+                        class="p_after">5.00</span></h3>
             </div>
         </div>
     </div>
