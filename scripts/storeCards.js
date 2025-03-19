@@ -28,9 +28,10 @@ function updateBookmark(storeDocID) {
 }
 
 
+
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("storeCardTemplate");
-    db.collection(collection).get()
+    db.collection(collection).limit(3).get()
         .then(allStores => {
             allStores.forEach(doc => {
                 var title = doc.data().name;
@@ -59,6 +60,29 @@ function displayCardsDynamically(collection) {
 
 }
 
+function displayProductCardsDynamically(collection) {
+
+    let cardTemplate = document.getElementById("storeProductCardTemplate");
+    db.collection("stores").doc("H805KLm1ZWGvQ2QCdd2N").collection("products").limit(4).get()
+        .then(allStores => {
+            allStores.forEach(doc => {
+                var title = doc.data().name;
+                var store = doc.data().store;
+                var timeget = doc.data().time;
+                var p_before = doc.data().price_before.toFixed(2)
+                var p_after = doc.data().price_after.toFixed(2)
+                var itemCode = doc.data().code;
+                let newcard = cardTemplate.content.cloneNode(true);
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.time').innerHTML = timeget;
+                newcard.querySelector('.store-title').innerHTML = store;
+                newcard.querySelector('.p_before').innerHTML = p_before;
+                newcard.querySelector('.p_after').innerHTML = p_after;
+                newcard.querySelector('.card-image').src = `./images/${itemCode}.jpg`;
+                document.getElementById("stores-products-go-here").appendChild(newcard);
+            })
+        })
+}
 
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
@@ -68,6 +92,7 @@ function doAll() {
 
             // the following functions are always called when someone is logged in
             displayCardsDynamically("stores");
+            displayProductCardsDynamically("stores");
             // saveBookmark();
 
         } else {
