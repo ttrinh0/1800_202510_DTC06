@@ -61,6 +61,39 @@ function displayCardsDynamically(collection) {
 
 }
 
+function displayCardsDynamicallyStorePage(collection) {
+    let cardTemplate = document.getElementById("storeCardStoreTemplate");
+    db.collection(collection).get()
+        .then(allStores => {
+            allStores.forEach(doc => {
+                var title = doc.data().name;
+                var details = doc.data().details;
+                var docID = doc.id;
+                var storeCode = doc.data().code;
+                var storeAddress = doc.data().address;
+                // var storeType = doc.data().storetype;
+                let newcard = cardTemplate.content.cloneNode(true);
+                newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.card-text').innerHTML = details;
+                newcard.querySelector('.card-address').innerHTML = storeAddress;
+                newcard.querySelector('a').href = "eachStoreLanding.html?docID=" + docID;
+                newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
+                newcard.querySelector('i').onclick = () => updateBookmark(docID);
+                currentUser.get().then(userDoc => {
+                    //get the user name
+                    var bookmarks = userDoc.data().bookmarks;
+                    if (bookmarks && bookmarks.includes(docID)) {
+                        document.getElementById('save-' + docID).className = 'fa-solid fa-lg fa-bookmark my-auto mr-2 hover:cursor-pointer';
+                    }
+                })
+                newcard.querySelector('.card-image').src = `./images/${storeCode}.jpg`;
+                document.getElementById("storepage-storecards").appendChild(newcard);
+            })
+        })
+
+}
+
+
 function displayProductCardsDynamically(collection) {
 
     let cardTemplate = document.getElementById("storeProductCardTemplate");
@@ -93,6 +126,7 @@ function doAll() {
 
             // the following functions are always called when someone is logged in
             displayCardsDynamically("stores");
+            displayCardsDynamicallyStorePage("stores");
             displayProductCardsDynamically("stores");
             // saveBookmark();
 
