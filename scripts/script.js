@@ -3,13 +3,13 @@
 //-------------------------------------------------
 function logout() {
     firebase.auth().signOut().then(() => {
+        localStorage.clear();
         // Sign-out successful.
         console.log("logging out user");
     }).catch((error) => {
         // An error happened.
     });
 }
-
 
 //------------------------------------------------
 // Load carousel html components into other html
