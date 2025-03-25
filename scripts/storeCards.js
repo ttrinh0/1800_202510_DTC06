@@ -94,29 +94,44 @@ function displayCardsDynamicallyStorePage(collection) {
 }
 
 
-function displayProductCardsDynamically(storeID) {
+function displayProductCardsDynamically(storeID, limit) {
 
     let cardTemplate = document.getElementById("storeProductCardTemplate");
-    db.collection("stores").doc(storeID).collection("products").limit(4).get()
+    let i = 1;
+    db.collection("stores").doc(storeID).collection("products").limit(limit).get()
         .then(allStores => {
             allStores.forEach(doc => {
                 var title = doc.data().name;
                 var store = doc.data().store;
                 var timeget = doc.data().time;
-                var p_before = doc.data().price_before.toFixed(2)
-                var p_after = doc.data().price_after.toFixed(2)
+                var p_before = doc.data().price_before.toFixed(2);
+                var p_after = doc.data().price_after.toFixed(2);
                 var itemCode = doc.data().code;
+                var button = "button" + i;
+                var cartItem = 'secondServeCart' + i
                 let newcard = cardTemplate.content.cloneNode(true);
                 newcard.querySelector('.card-title').innerHTML = title;
+                newcard.querySelector('.product_button').id = "button" + i;
                 newcard.querySelector('.time').innerHTML = timeget;
                 newcard.querySelector('.store-title').innerHTML = store;
                 newcard.querySelector('.p_before').innerHTML = p_before;
                 newcard.querySelector('.p_after').innerHTML = p_after;
                 newcard.querySelector('.card-image').src = `./images/${itemCode}.jpg`;
                 document.getElementById("stores-products-go-here").appendChild(newcard);
-            })
-        })
-}
+
+                var addProduct = document.getElementById(button)
+                console.log("addProduct", addProduct)
+                addProduct.addEventListener("click", function () {
+                    productCart = `{ "${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}" } }`
+                    console.log(productCart)
+                    localStorage.setItem(cartItem, productCart);
+
+                })
+                i++;
+
+            });
+        });
+};
 
 function doAll() {
     firebase.auth().onAuthStateChanged(user => {
@@ -127,7 +142,7 @@ function doAll() {
             // the following functions are always called when someone is logged in
             displayCardsDynamically("stores");
             displayCardsDynamicallyStorePage("stores");
-            displayProductCardsDynamically("H805KLm1ZWGvQ2QCdd2N");
+            displayProductCardsDynamically("H805KLm1ZWGvQ2QCdd2N", 4);
             // saveBookmark();
 
         } else {
