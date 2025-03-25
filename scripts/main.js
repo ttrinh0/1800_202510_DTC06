@@ -6,21 +6,25 @@ function getNameFromAuth() {
             console.log(user.uid); //print the uid in the browser console
             console.log(user.displayName);  //print the user name in the browser console
             userName = user.displayName;
-
-            //method #1:  insert with JS
-            document.getElementById("name-goes-here").innerText = userName;
-
-            //method #2:  insert using jquery
-            //$("#name-goes-here").text(userName); //using jquery
-
-            //method #3:  insert using querySelector
-            //document.querySelector("#name-goes-here").innerText = userName
-
+            getUserName(user.uid)
         } else {
             // No user is signed in.
             console.log("No user is logged in");
         }
     });
+}
+
+ function getUserName(user) {
+     db.collection("users").get()   //the collection called "users"
+        .then(allUsers => {
+            //var i = 1;  //Optional: if you want to have a unique ID for each user
+            allUsers.forEach(doc => { //iterate thru each doc
+                ///console.log(doc.uid)
+                userData = doc.data();
+                if (doc.id == user) {
+                    document.getElementById("name-goes-here").innerText = userData.name;
+                }});
+            });
 }
 
 getNameFromAuth(); //run the function
