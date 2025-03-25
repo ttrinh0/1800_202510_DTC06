@@ -40,13 +40,14 @@ function showItemInCart() {
         counter++
     }
 }
-showItemInCart()
+
 function getNameFromAuth() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:
         if (user) {
             localStorage.setItem("currentUser", user.uid);
             console.log(user.uid);
+            showItemInCart()
         }
     });
 }
