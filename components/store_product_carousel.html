@@ -5,12 +5,13 @@
 <template id="storeProductCardTemplate">
     <!-- CARD  -->
     <!-- BG IMAGE  -->
-    <div class="relative mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md">
+    <div class="productCard mx-auto md:mx-2 my-2 md:my-0 rounded-md w-full overflow-hidden drop-shadow-md">
         <!-- PRODUCT ITEMS  -->
         <div class="flex">
             <div
                 class="bg-white w-11/12 m-4 p-4 pb-2 rounded-md text-lg mx-auto border-2 border-black/10 hover:bg-black/5 transition">
-                <div class="flex justify-between p-2 bg-white hover:cursor-pointer rounded-xl">
+                <div class="flex justify-between p-2 bg-white hover:cursor-pointer rounded-xl"
+                    onclick="addItemToCart()">
                     <p class="card-title">Item name</p>
                     <i class="fa-lg fa-solid fa-plus flex my-auto hover:cursor-pointer"></i>
                 </div>
