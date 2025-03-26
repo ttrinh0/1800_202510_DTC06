@@ -6,7 +6,7 @@ function getNameFromAuth() {
             userName = user.displayName;
             getUserInformation("users", user.uid); //pass the collection name and the user ID
             //method #1:  insert with JS
-            document.getElementById("name-goes-here").innerText = userName;
+
 
             //method #2:  insert using jquery
             //$("#name-goes-here").text(userName); //using jquery
