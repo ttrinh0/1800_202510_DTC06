@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body class="bg-[#f6f5eb]">
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
@@ -37,15 +37,25 @@
     <!-- Stuff for body goes here -->
 
 
-    <div class="bg-[#f6f5eb] h-dvh">
-        <article class="bg-white p-6 px-6 pb-20 rounded-lg drop-shadow-xl">
-            <div>
-                <h1 id="storeName" class="text-4xl"> </h1>
-                <p class="text-2xl">More info to be added later</p>
-            </div>
-        </article>
+    <main class="pt-8 2xl:px-6 pb-8 mb-16 2xl:max-w-screen-2xl 2xl:mx-auto">
+        <section class="flex flex-col px-4">
+            <article class="bg-white  pb-6  mt-4 rounded-lg drop-shadow-xl">
+                <div class="">
+                    <img class="hike-img h-[200px] w-screen rounded-lg" src="" />
+                </div>
+                <div class="mt-8 px-6">
+                    <h1 id="storeName" class="text-4xl"> </h1>
+                    <p id="storeDetails" class="text-md mt-6"> </p>
+                </div>
+            </article>
 
-    </div>
+            <article class="bg-white p-6 px-6 pb-20 mt-4 rounded-lg drop-shadow-xl">
+                <h1 class="text-2xl font-semibold mb-6 px-6 md:px-0">Products</h1>
+                <div class="storeProductCarousel"></div>
+            </article>
+        </section>
+
+    </main>
 
 
 
@@ -61,6 +71,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/eachStoreLanding.js"></script>
     <script src="./scripts/nav.js"></script>
-</body>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/cart.js"></script>
 
 </html>
