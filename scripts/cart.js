@@ -97,6 +97,7 @@ async function storeItemsToOrderHistory() {
     try {
         await batch.commit();
         localStorage.removeItem("secondServeCart");
+        localStorage.removeItem("counter");
         alert("Checkout successful!");
         window.location.href = "orders.html";
     } catch (error) {
