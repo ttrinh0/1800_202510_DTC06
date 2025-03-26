@@ -29,6 +29,15 @@ function displayProductCardsDynamically(limit) {
     let ID = params.searchParams.get("docID");
     let cardTemplate = document.getElementById("storeProductCardTemplate");
     let i = 1;
+
+    counter = 0
+    if (localStorage.getItem('counter') === null) {
+        localStorage.setItem('counter', 0)
+    }
+    else if ('counter' in localStorage) {
+        var counter = parseInt(localStorage.getItem('counter'))
+    }
+
     db.collection("stores").doc(ID).collection("products").limit(limit).get()
         .then(allStores => {
             allStores.forEach(doc => {
@@ -51,11 +60,44 @@ function displayProductCardsDynamically(limit) {
                 document.getElementById("stores-products-go-here").appendChild(newcard);
 
                 var addProduct = document.getElementById(button)
-                console.log("addProduct", addProduct)
+                let totalCart = []
+
                 addProduct.addEventListener("click", function () {
-                    productCart = `{ "${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}" } }`
+                    productCart = `"${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}"}`
                     console.log(productCart)
-                    localStorage.setItem(cartItem, productCart);
+                    x = ""
+                    // Add first item
+                    if (localStorage.getItem("secondServeCart") === null) {
+                        firstItem = "{" + productCart
+                        localStorage.setItem("secondServeCart", firstItem);
+                        counter++
+                        localStorage.setItem('counter', counter)
+                    }
+                     // Add second item
+                     else if ("secondServeCart" in localStorage) {
+                        currentCart = localStorage.getItem("secondServeCart")
+
+                        if (counter == 1) {
+                            x = currentCart
+                        }
+                        if (counter > 1) {
+                            x = currentCart.substring(0, currentCart.length - 1)
+                        }
+                        totalCart.push(x);
+                        totalCart.push(productCart)
+                        totalCart.join(", ")
+                        totalCart += "}"
+                        localStorage.setItem("secondServeCart", totalCart);
+                        x = ""
+                        totalCart = []
+                        counter++
+                        localStorage.setItem('counter', counter)
+                    }
+                    addProduct.classList.replace("bg-white", "bg-green-500")
+
+                    setTimeout(() => {
+                        addProduct.classList.replace("bg-green-500", "bg-white");
+                    }, "500");
 
                 })
                 i++;
