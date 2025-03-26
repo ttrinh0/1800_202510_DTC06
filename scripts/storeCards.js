@@ -94,8 +94,9 @@ function displayCardsDynamicallyStorePage(collection) {
 }
 
 
-function displayProductCardsDynamically(storeID, limit) {
-
+function displayProductCardsDynamically(limit) {
+    let stores = ["FMAj2BiGSZdMUOyhd2fA", "GAF04PBpq6yEcU7kQTI8", "I3JOq94DSdqN4uzu5cgg", "iyrqHUb1OpjodEdZV1Zp", "o7ZvbwVJ4uSP8adV92iT"]
+    let storeID = stores[Math.floor(Math.random() * 5)]
     let cardTemplate = document.getElementById("storeProductCardTemplate");
     let i = 1;
     counter = 0
@@ -143,7 +144,7 @@ function displayProductCardsDynamically(storeID, limit) {
                     }
                     // Add second item
                     else if ("secondServeCart" in localStorage) {
-                        currentCart = localStorage.getItem;("secondServeCart")
+                        currentCart = localStorage.getItem; ("secondServeCart")
 
                         if (counter == 1) {
                             x = currentCart;
@@ -183,7 +184,7 @@ function doAll() {
             // the following functions are always called when someone is logged in
             displayCardsDynamically("stores");
             displayCardsDynamicallyStorePage("stores");
-            displayProductCardsDynamically("H805KLm1ZWGvQ2QCdd2N", 4);
+            displayProductCardsDynamically(4);
             // saveBookmark();
 
         } else {
