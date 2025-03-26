@@ -138,31 +138,31 @@ function displayProductCardsDynamically(storeID, limit) {
                     if (localStorage.getItem("secondServeCart") === null) {
                         firstItem = "{" + productCart
                         localStorage.setItem("secondServeCart", firstItem);
-                        counter++
+                        counter++;
                         localStorage.setItem('counter', counter)
                     }
                     // Add second item
                     else if ("secondServeCart" in localStorage) {
-                        currentCart = localStorage.getItem("secondServeCart")
+                        currentCart = localStorage.getItem;("secondServeCart")
 
                         if (counter == 1) {
-                            x = currentCart
+                            x = currentCart;
                         }
                         if (counter > 1) {
                             x = currentCart.substring(0, currentCart.length - 1)
                         }
                         totalCart.push(x);
-                        totalCart.push(productCart)
-                        totalCart.join(", ")
-                        totalCart += "}"
+                        totalCart.push(productCart);
+                        totalCart.join(", ");
+                        totalCart += "}";
                         localStorage.setItem("secondServeCart", totalCart);
-                        x = ""
-                        totalCart = []
-                        counter++
-                        localStorage.setItem('counter', counter)
+                        x = "";
+                        totalCart = [];
+                        counter++;
+                        localStorage.setItem('counter', counter);
                     }
 
-                    addProduct.classList.replace("bg-white", "bg-green-500")
+                    addProduct.classList.replace("bg-white", "bg-green-500");
 
                     setTimeout(() => {
                         addProduct.classList.replace("bg-green-500", "bg-white");
