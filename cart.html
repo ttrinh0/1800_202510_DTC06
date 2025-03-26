@@ -83,11 +83,13 @@
                 <h4 class="font-semibold text-lg pt-5">Your cart is empty</h4>
                 <p class="text-center">Once you add items from a restaurant or store, your cart will appear here.</p>
             </div>
-
+            <div class="grid grid-cols-6 mt-8 text-lg font-semi"><div class="col-start-6">Subtotal: $<span id="subtotal">subtotal</span></div></div>
 
 
         </article>
-        <button class="md:inline mr-6 cursor-pointer" onclick="storeItemsToOrderHistory()">Checkout</button>
+        <button
+            class="md:block drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#f6d276] text-[#276861] border-[#f6d276] active:bg-green-700 hover:bg-[#3d8078] hover:text-[#fde8b2] cursor-pointer font-semibold hover:border-[#fde8b2]"
+            onclick="storeItemsToOrderHistory()">Checkout</button>
 
     </section>
 
