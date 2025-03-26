@@ -3,7 +3,7 @@
 function showItemInCart() {
     const cart = document.getElementById("cart")
 
-    if (localStorage.length > 1) {
+    if ('secondServeCart' in localStorage) {
         cart.innerHTML = ""
         cart.classList.toggle("flex-grow")
     }
@@ -33,7 +33,7 @@ function showItemInCart() {
         cart.innerHTML += cartCard;
     }
     let subtotaldiv = document.getElementById("subtotal")
-    subtotaldiv.innerHTML = subtotal.toFixed(2)
+    subtotaldiv.innerHTML = "Subtotal: $" + subtotal.toFixed(2)
 }
 
 

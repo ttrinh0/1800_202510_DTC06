@@ -136,19 +136,15 @@ function displayProductCardsDynamically(storeID, limit) {
                     x = ""
                     // Add first item
                     if (localStorage.getItem("secondServeCart") === null) {
-                        firstItem = "{" + productCart
+                        firstItem = "{" + productCart + "}"
                         localStorage.setItem("secondServeCart", firstItem);
                         counter++;
                         localStorage.setItem('counter', counter)
                     }
                     // Add second item
                     else if ("secondServeCart" in localStorage) {
-                        currentCart = localStorage.getItem;("secondServeCart")
-
-                        if (counter == 1) {
-                            x = currentCart;
-                        }
-                        if (counter > 1) {
+                        currentCart = localStorage.getItem("secondServeCart")
+                        if (counter > 0) {
                             x = currentCart.substring(0, currentCart.length - 1)
                         }
                         totalCart.push(x);
