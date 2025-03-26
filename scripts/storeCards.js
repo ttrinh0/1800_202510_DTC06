@@ -108,7 +108,6 @@ function displayProductCardsDynamically(storeID, limit) {
                 var p_after = doc.data().price_after.toFixed(2);
                 var itemCode = doc.data().code;
                 var button = "button" + i;
-                var cartItem = 'secondServeCart' + i
                 let newcard = cardTemplate.content.cloneNode(true);
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.product_button').id = "button" + i;
@@ -120,15 +119,29 @@ function displayProductCardsDynamically(storeID, limit) {
                 document.getElementById("stores-products-go-here").appendChild(newcard);
 
                 var addProduct = document.getElementById(button)
-                console.log("addProduct", addProduct)
+                let totalCart = []
+
+                // productCart = `{`
                 addProduct.addEventListener("click", function () {
-                    productCart = `{ "${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}" } }`
+                    productCart = `"${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}"}`
                     console.log(productCart)
-                    localStorage.setItem(cartItem, productCart);
+                    if (localStorage.getItem("secondServeCart") === null) {
+                        firstItem = "{" + productCart
+                        localStorage.setItem("secondServeCart", firstItem);
+                    }
+                    else if ("secondServeCart" in localStorage) {
+                        x = localStorage.getItem("secondServeCart")
+                        totalCart.push(x);
+                        totalCart.push(productCart)
+                        totalCart.join(", ")
+                        totalCart += "}"
+                        localStorage.setItem("secondServeCart", totalCart);
+                        x = ""
+                        totalCart = []
+                    }
 
                 })
                 i++;
-
             });
         });
 };
@@ -153,3 +166,5 @@ function doAll() {
     });
 }
 doAll();
+
+
