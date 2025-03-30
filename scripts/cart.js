@@ -9,7 +9,8 @@ function showItemInCart() {
         cart.classList.toggle("flex-grow")
     }
 
-    let subtotal = 0
+    let subtotal = parseFloat(localStorage.getItem('subtotal'))
+    // subtotal = 0
 
     productInfo = JSON.parse(localStorage.getItem('secondServeCart'))
     cartLength = Object.keys(productInfo).length
@@ -19,7 +20,7 @@ function showItemInCart() {
         price = Object.values(productInfo)[i]["price"]
         img = Object.values(productInfo)[i]["img"]
         quantity = Object.values(productInfo)[i]["quantity"]
-        subtotal += Number(price)
+        // subtotal += Number(price)
         cardNumberID = "cartCard" + i
         cardNumberRemoveID = "cartCardRemove" + i
 
@@ -41,29 +42,43 @@ function showItemInCart() {
     }
 
     let subtotaldiv = document.getElementById("subtotal")
-    subtotaldiv.innerHTML = "Subtotal: $" + subtotal.toFixed(2)
+    subtotaldiv.innerHTML = "Subtotal: $" + subtotal
     let checkoutdiv = document.getElementById("checkout")
     checkoutdiv.innerHTML = `<button
     class="cursor-pointer w-[120px] bg-[#439189] text-white font-semibold py-2 px-4 rounded-lg transition hover:bg-[#f6d276] hover:text-[#276861]"
     onclick="storeItemsToOrderHistory()">Checkout</button>`
 
     for (i = 0; i < cartLength; i++) {
-
+        let subtotal = parseFloat(localStorage.getItem('subtotal'))
+        console.log("subtotal", subtotal)
         let cartCard = document.getElementById("cartCard" + i)
         let cartEmpty = document.getElementById("cartEmpty")
         newCounter = localStorage.getItem('counter');
         let cardNumberRemove = document.getElementById("cartCardRemove" + i)
         let numberi = i
         let title = Object.keys(productInfo)[numberi]
+        let price = parseFloat(Object.values(productInfo)[numberi]["price"])
+        console.log("price", price)
+        let newPrice = 0
+        console.log("new", newPrice)
+
         cardNumberRemove.addEventListener("click", () => {
             const updatedObj = Object.fromEntries(
                 Object.entries(productInfo).filter(([key]) => key !== title)
             );
             productInfo = updatedObj
             cartCard.remove()
+
             newCounter--
+
+            subtotal = parseFloat(localStorage.getItem('subtotal'))
+            newPrice = subtotal - price
+            localStorage.setItem('counter', newCounter);
+            localStorage.setItem('subtotal', newPrice);
+            subtotaldiv.innerHTML = "Subtotal: $" + newPrice.toFixed(2)
             if (newCounter == 0) {
                 localStorage.removeItem('secondServeCart');
+                localStorage.removeItem('subtotal');
                 subtotaldiv.innerHTML = ""
                 checkoutdiv.innerHTML = ""
                 cartEmpty.innerHTML = `<i class="fa-solid fa-cart-shopping text-3xl mx-auto"></i>
@@ -75,14 +90,11 @@ function showItemInCart() {
             } else {
                 localStorage.setItem('secondServeCart', JSON.stringify(updatedObj));
             }
-            localStorage.setItem('counter', newCounter);
+
         })
     }
 }
 
-function removeItemCart() {
-    console.log("h")
-}
 
 function getNameFromAuth() {
     firebase.auth().onAuthStateChanged(user => {
@@ -145,6 +157,7 @@ async function storeItemsToOrderHistory() {
         await batch.commit();
         localStorage.removeItem("secondServeCart");
         localStorage.removeItem("counter");
+        localStorage.removeItem("subtotal");
         alert("Checkout successful!");
         window.location.href = "orders.html";
     } catch (error) {

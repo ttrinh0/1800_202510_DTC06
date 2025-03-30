@@ -31,11 +31,19 @@ function displayProductCardsDynamically(limit) {
     let i = 1;
 
     counter = 0
+    subtotal = 0
+
     if (localStorage.getItem('counter') === null) {
         localStorage.setItem('counter', 0)
     }
     else if ('counter' in localStorage) {
         var counter = parseInt(localStorage.getItem('counter'))
+    }
+    if (localStorage.getItem('subtotal') === null) {
+        localStorage.setItem('subtotal', 0)
+    }
+    else if ('subtotal' in localStorage) {
+        var subtotal = parseFloat(localStorage.getItem('subtotal'))
     }
 
     db.collection("stores").doc(ID).collection("products").limit(limit).get()
@@ -48,7 +56,6 @@ function displayProductCardsDynamically(limit) {
                 var p_after = doc.data().price_after.toFixed(2);
                 var itemCode = doc.data().code;
                 var button = "button" + i;
-                var cartItem = 'secondServeCart' + i
                 let newcard = cardTemplate.content.cloneNode(true);
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.product_button').id = "button" + i;
@@ -64,34 +71,32 @@ function displayProductCardsDynamically(limit) {
 
                 addProduct.addEventListener("click", function () {
                     productCart = `"${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}"}`
-                    console.log(productCart)
+                    subtotal = subtotal + parseFloat(p_after)
                     x = ""
                     // Add first item
                     if (localStorage.getItem("secondServeCart") === null) {
-                        firstItem = "{" + productCart
+                        firstItem = "{" + productCart + "}"
                         localStorage.setItem("secondServeCart", firstItem);
-                        counter++
+                        counter++;
                         localStorage.setItem('counter', counter)
+                        localStorage.setItem('subtotal', subtotal)
                     }
-                     // Add second item
-                     else if ("secondServeCart" in localStorage) {
+                    // Add second item
+                    else if ("secondServeCart" in localStorage) {
                         currentCart = localStorage.getItem("secondServeCart")
-
-                        if (counter == 1) {
-                            x = currentCart
-                        }
-                        if (counter > 1) {
+                        if (counter > 0) {
                             x = currentCart.substring(0, currentCart.length - 1)
                         }
                         totalCart.push(x);
-                        totalCart.push(productCart)
-                        totalCart.join(", ")
-                        totalCart += "}"
+                        totalCart.push(productCart);
+                        totalCart.join(", ");
+                        totalCart += "}";
                         localStorage.setItem("secondServeCart", totalCart);
-                        x = ""
-                        totalCart = []
-                        counter++
-                        localStorage.setItem('counter', counter)
+                        x = "";
+                        totalCart = [];
+                        counter++;
+                        localStorage.setItem('counter', counter);
+                        localStorage.setItem('subtotal', subtotal)
                     }
                     addProduct.classList.replace("bg-white", "bg-green-500")
 

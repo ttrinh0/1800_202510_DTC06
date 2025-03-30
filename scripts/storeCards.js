@@ -99,12 +99,21 @@ function displayProductCardsDynamically(limit) {
     let storeID = stores[Math.floor(Math.random() * 5)]
     let cardTemplate = document.getElementById("storeProductCardTemplate");
     let i = 1;
+
     counter = 0
+    subtotal = 0
+
     if (localStorage.getItem('counter') === null) {
         localStorage.setItem('counter', 0)
     }
     else if ('counter' in localStorage) {
         var counter = parseInt(localStorage.getItem('counter'))
+    }
+    if (localStorage.getItem('subtotal') === null) {
+        localStorage.setItem('subtotal', 0)
+    }
+    else if ('subtotal' in localStorage) {
+        var subtotal = parseFloat(localStorage.getItem('subtotal'))
     }
 
     db.collection("stores").doc(storeID).collection("products").limit(limit).get()
@@ -133,7 +142,7 @@ function displayProductCardsDynamically(limit) {
 
                 addProduct.addEventListener("click", function () {
                     productCart = `"${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}"}`
-                    console.log(productCart)
+                    subtotal = subtotal + parseFloat(p_after)
                     x = ""
                     // Add first item
                     if (localStorage.getItem("secondServeCart") === null) {
@@ -141,6 +150,7 @@ function displayProductCardsDynamically(limit) {
                         localStorage.setItem("secondServeCart", firstItem);
                         counter++;
                         localStorage.setItem('counter', counter)
+                        localStorage.setItem('subtotal', subtotal)
                     }
                     // Add second item
                     else if ("secondServeCart" in localStorage) {
@@ -157,6 +167,7 @@ function displayProductCardsDynamically(limit) {
                         totalCart = [];
                         counter++;
                         localStorage.setItem('counter', counter);
+                        localStorage.setItem('subtotal', subtotal)
                     }
 
                     addProduct.classList.replace("bg-white", "bg-green-500");
