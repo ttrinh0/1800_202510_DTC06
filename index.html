@@ -32,37 +32,35 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
     <!-- TOP NAV -->
-    <nav id="navbarTop" class="sticky top-0 z-999"></nav>
-
-    <!-- Stuff for body goes here -->
-    <!-- 
-    <section class="h-screen relative">
-        <img src="/images/cafe.jpg" alt="" class="object-cover object-center">
-    </section> -->
-
-    <div class="text-center p-10 h-dvh">
-        <h1 class="font-bold tracking-wide text-4xl  mb-8">Welcome to SecondServe</h1>
-        <p class=" text-xl mb-10">Connecting businesses with individuals and offering food surplus at a discounted
-            price to help individuals and food businesses reduce food waste.
-        </p>
-        <div class="flex justify-center">
-            <div class="mx-5">
-                <input type="text" placeholder="Enter Address"
-                    class="w-full  p-2 pr-60 border  rounded-md focus:ring-2">
+    <section class="h-dvh bg-linear-200 from-[#47c5b9] via-[#439189] to-[#27605a] flex flex-col">
+        <nav class="flex justify-between py-3 px-6">
+            <div class="my-auto">
+                <i class="my-2 drop-shadow-sm fa-solid fa-utensils fa-lg text-[#fde8b2]"></i>
             </div>
-            <div>
-                <button
-                    class="w-full text-white bg-green-800 p-2 rounded-md hover:bg-green-400 hover:text-black active:bg-green-700">
-                    Search
-                </button>
+
+        </nav>
+        <hr class="border-[#27605a]/50 border-1 mx-4">
+
+        <div class="p-10 mt-14 md:my-auto md:mt-36 text-white drop-shadow-md">
+            <h1 class="font-bold tracking-wide text-5xl mb-8">Welcome to<br> SecondServe</h1>
+            <p class="text-xl mb-12">Connecting businesses with individuals and offering food surplus at a
+                discounted
+                price to help individuals and food businesses reduce food waste.
+            </p>
+            <div class="flex flex-col md:block">
+                <a href="login.html"
+                    class="mb-2 drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#f6d276] text-[#276861] border-[#f6d276] active:bg-green-700 hover:bg-[#3d8078] hover:text-[#fde8b2] cursor-pointer font-semibold hover:border-[#fde8b2]"
+                    role="button">Signup to get started</a>
+                <a href="login.html"
+                    class="drop-shadow-sm border-2 rounded-md py-2 px-3 bg-[#439189] text-[#f6d276] cursor-pointer active:bg-green-300 hover:bg-[#fde8b2] hover:border-[#fde8b2] hover:text-[#276861] font-semibold"
+                    role="button">Or Login</a>
             </div>
         </div>
-    </div>
+    </section>
 
 
 
-    <!-- BOTTOM NAV -->
-    <nav id="navbarBottom" class="sticky bottom-0"></nav>
+
     <!-- FOOTER -->
     <nav id="footer"></nav>
     <!---------------------------------------------->
