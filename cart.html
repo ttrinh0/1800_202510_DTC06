@@ -69,27 +69,30 @@
     <section class="pb-16 2xl:max-w-screen-2xl 2xl:mx-auto min-h-[calc(100vh-64px-64px)] flex flex-col">
         <article class="p-6 flex flex-col flex-grow">
             <div class="flex justify-between">
-                <h1 class="text-2xl font-semibold mb-4">Cart</h1>
+                <h1 class="text-2xl font-semibold my-auto">Cart</h1>
                 <a href="/orders.html" id="orderHistory"
                     class="rounded-lg py-3 px-3 bg-gray-200 hover:bg-gray-300">Order
                     History</a>
             </div>
-            <div id="cart" class="flex flex-col items-center justify-center flex-grow">
-                <i class="fa-solid fa-cart-shopping text-3xl"></i>
-                <h4 class="font-semibold text-lg pt-5">Your cart is empty</h4>
-                <p class="text-center">Once you add items from a restaurant or store, your cart will appear here.</p>
+            <div id="cart" class="flex flex-col flex-grow">
+                <div id="cartEmpty" class="my-auto flex flex-col">
+                    <i class="fa-solid fa-cart-shopping text-3xl mx-auto"></i>
+                    <h4 class="font-semibold text-lg pt-5 mx-auto">Your cart is empty</h4>
+                    <p class="text-center mx-auto">Once you add items from a restaurant or store, your cart will appear
+                        here.
+                    </p>
+                </div>
             </div>
-            <div class="grid grid-cols-6 mt-8 text-lg font-semi">
-                <div id="subtotal" class="col-start-6"></div>
+            <div class="flex justify-end mt-8 text-lg">
+                <div id="subtotal" class="my-auto mr-4"></div>
+                <div id="checkout" class="text-center">
+
+                </div>
             </div>
 
 
         </article>
-        <div class="text-center">
-            <button
-                class="cursor-pointer w-[120px] bg-[#439189] text-white font-semibold py-2 px-4 rounded-lg transition hover:bg-[#f6d276] hover:text-[#276861]"
-                onclick="storeItemsToOrderHistory()">Checkout</button>
-        </div>
+
     </section>
 
 
