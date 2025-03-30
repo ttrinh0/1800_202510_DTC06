@@ -38,7 +38,7 @@ async function getUserInformation(collection, user) {
                     }
                     if (userData.address) {
                         document.getElementById("address-goes-here").innerText = userData.address;
-}
+                    }
                     else {
                         document.getElementById("address-goes-here").innerText = "No address provided";
 
@@ -47,31 +47,31 @@ async function getUserInformation(collection, user) {
                         document.getElementById("city-goes-here").innerText = userData.city;
                     }
                     else {
-                        document.getElementById("city-goes-here").innerText = "No city provided";   
+                        document.getElementById("city-goes-here").innerText = "No city provided";
                     }
                     if (userData.province) {
                         document.getElementById("province-state-goes-here").innerText = userData.province;
                     }
                     else {
-                        document.getElementById("province-state-goes-here").innerText = "No province or state provided";   
+                        document.getElementById("province-state-goes-here").innerText = "No province or state provided";
                     }
                     if (userData.postal) {
                         document.getElementById("postal-zip-goes-here").innerText = userData.postal;
                     }
                     else {
-                        document.getElementById("postal-zip-goes-here").innerText = "No postal or zip code provided";      
+                        document.getElementById("postal-zip-goes-here").innerText = "No postal or zip code provided";
                     }
                     if (userData.phone) {
                         document.getElementById("phone-goes-here").innerText = userData.phone;
                     }
                     else {
-                        document.getElementById("phone-goes-here").innerText = "No phone number provided";  
+                        document.getElementById("phone-goes-here").innerText = "No phone number provided";
                     }
                     if (userData.country) {
                         document.getElementById("country-goes-here").innerText = userData.country;
                     }
-                    else { 
-                        document.getElementById("country-goes-here").innerText = "No country provided";  
+                    else {
+                        document.getElementById("country-goes-here").innerText = "No country provided";
                     }
                     return;
                 }
@@ -176,7 +176,7 @@ async function submitButton() {
     var address = document.getElementById("user-home-address-form").value;
     var city = document.getElementById("user-city-form").value;
     var province = document.getElementById("user-province-state-form").value;
-    var postal =document.getElementById("user-postal-zip-form").value;
+    var postal = document.getElementById("user-postal-zip-form").value;
     var phone = document.getElementById("user-phone-form").value;
 
     console.log("user: " + user);
@@ -188,7 +188,7 @@ async function submitButton() {
     if (address) {
         await saveUserAddressToFirestore(user, address);
     }
-    if (city) { 
+    if (city) {
         await saveUserCityToFirestore(user, city);
     }
     if (province) {
@@ -257,7 +257,7 @@ editAccountButton.addEventListener('click', () => {
     const name = document.getElementById("user-name-firebase").textContent.trim();
     const address = document.getElementById("address-goes-here").textContent.trim();
     const city = document.getElementById("city-goes-here").textContent.trim();
-    const province = document.getElementById("province-state-goes-here").textContent.trim();    
+    const province = document.getElementById("province-state-goes-here").textContent.trim();
     const postal = document.getElementById("postal-zip-goes-here").textContent.trim();
     const phone = document.getElementById("phone-goes-here").textContent.trim();
     const country = document.getElementById("country-goes-here").textContent.trim();
@@ -269,5 +269,22 @@ editAccountButton.addEventListener('click', () => {
     document.getElementById("user-country-form").value = country;
     document.getElementById("user-phone-form").value = phone;
 });
+function doAll() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = db.collection("users").doc(user.uid); //global
+            console.log(currentUser);
 
-getNameFromAuth(); 
+            // the following functions are always called when someone is logged in
+            getNameFromAuth();
+
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+            window.location.href = "login.html";
+        }
+    });
+}
+doAll();
+
+

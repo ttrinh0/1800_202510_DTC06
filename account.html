@@ -54,7 +54,7 @@
 
         <section class="pt-2 pb-8 md:px-6 2xl:max-w-screen-2xl 2xl:mx-auto">
             <accountinfo id="page1" class="block">
-                
+
                 <!-- ------------------------------ -->
                 <!-- PUT FIREBASE DATABASE IDs HERE -->
                 <!-- ------------------------------ -->
@@ -132,13 +132,18 @@
 
                         <div class="mt-6 text-center">
                             <button id="editAccountButton"
-                                class="bg-gray-200 w-full text-gray-800 font-medium py-2 px-6 rounded-lg hover:bg-gray-300 transition">
+                                class="bg-gray-200 w-full text-gray-800 py-2 px-6 rounded-lg hover:bg-gray-300 transition font-semibold">
                                 Edit Account
                             </button>
                         </div>
                     </div>
                 </content>
-
+                <div class="flex justify-center my-8">
+                    <button onclick="logout()"
+                        class="text-center p-1 px-8 rounded-xl border-2 text-[#8f4848] bg-gray-100/40 font-semibold hover:bg-[#8f4848] hover:text-white hover:border-[#8f4848] cursor-pointer">
+                        Logout
+                    </button>
+                </div>
             </accountinfo>
 
             <favourites id="page2" class="hidden">
