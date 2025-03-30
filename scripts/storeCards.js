@@ -98,6 +98,7 @@ function displayProductCardsDynamically(limit) {
     let stores = ["FMAj2BiGSZdMUOyhd2fA", "GAF04PBpq6yEcU7kQTI8", "I3JOq94DSdqN4uzu5cgg", "iyrqHUb1OpjodEdZV1Zp", "o7ZvbwVJ4uSP8adV92iT"]
     let storeID = stores[Math.floor(Math.random() * 5)]
     let cardTemplate = document.getElementById("storeProductCardTemplate");
+    let store_card_link = document.getElementById("productStoreLink")
     let i = 1;
 
     counter = 0
@@ -126,6 +127,7 @@ function displayProductCardsDynamically(limit) {
                 var p_after = doc.data().price_after.toFixed(2);
                 var itemCode = doc.data().code;
                 let button = "button" + i;
+                store_card_link.href = "eachStoreLanding.html?docID=" + storeID
                 let newcard = cardTemplate.content.cloneNode(true);
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.product_button').id = "button" + i;
