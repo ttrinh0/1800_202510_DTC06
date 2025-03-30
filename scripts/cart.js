@@ -42,7 +42,7 @@ function showItemInCart() {
     }
 
     let subtotaldiv = document.getElementById("subtotal")
-    subtotaldiv.innerHTML = "Subtotal: $" + subtotal
+    subtotaldiv.innerHTML = "Subtotal: $" + subtotal.toFixed(2)
     let checkoutdiv = document.getElementById("checkout")
     checkoutdiv.innerHTML = `<button
     class="cursor-pointer w-[120px] bg-[#439189] text-white font-semibold py-2 px-4 rounded-lg transition hover:bg-[#f6d276] hover:text-[#276861]"
