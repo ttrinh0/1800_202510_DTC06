@@ -65,7 +65,7 @@ async function getUserInformation(collection, user) {
                         document.getElementById("phone-goes-here").innerText = userData.phone;
                     }
                     else {
-                        document.getElementById("phone-goes-here").innerText = "No phone number provided";
+                        document.getElementById("phone-goes-here").innerText = "";
                     }
                     if (userData.country) {
                         document.getElementById("country-goes-here").innerText = userData.country;
