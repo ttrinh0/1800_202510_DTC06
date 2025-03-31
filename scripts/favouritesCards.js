@@ -12,7 +12,10 @@ function updateBookmark(storeDocID) {
                     console.log("bookmark has been removed for " + storeDocID);
                     let iconID = 'fave-' + storeDocID;
                     document.getElementById(iconID).className = 'fa-regular fa-lg fa-bookmark my-auto mr-2 hover:cursor-pointer';
-                });
+                })
+                .then(() => {
+                    window.location.reload();
+                })
         } else {
             currentUser.update({
                 bookmarks: firebase.firestore.FieldValue.arrayUnion(storeDocID)
@@ -43,7 +46,6 @@ function displayCardsDynamically(collection) {
                         var details = doc.data().details;
                         var storeCode = doc.data().code;
                         var storeAddress = doc.data().address;
-                        // var storeType = doc.data().storetype;
                         let newcard = cardTemplate.content.cloneNode(true);
                         newcard.querySelector('.card-title').innerHTML = title;
                         newcard.querySelector('.card-text').innerHTML = details;
