@@ -65,7 +65,7 @@ async function getUserInformation(collection, user) {
                         document.getElementById("phone-goes-here").innerText = userData.phone;
                     }
                     else {
-                        document.getElementById("phone-goes-here").innerText = "";
+                        document.getElementById("phone-goes-here").innerText = "No phone number provided";
                     }
                     if (userData.country) {
                         document.getElementById("country-goes-here").innerText = userData.country;
@@ -211,43 +211,9 @@ async function submitButton() {
 }
 
 // Declare html id to variables
-const page1Btn = document.getElementById('page1Btn');
-const page2Btn = document.getElementById('page2Btn');
-const page1 = document.getElementById('page1');
-const page2 = document.getElementById('page2');
 const editAccountButton = document.getElementById('editAccountButton');
-const carousel = document.getElementById('store_carousel');
 const userProfile = document.getElementById('userProfile');
 const editAccountForm = document.getElementById('editAccountForm');
-
-
-// Click listeners to buttons
-page1Btn.addEventListener('click', () => {
-    // Hides previous page
-    page1.classList.remove('hidden');
-    page2.classList.add('hidden');
-    page2.classList.remove('block');
-    carousel.classList.remove('storeCarousel');
-    carousel.innerHTML = ""
-
-    // Change bg colour of btns
-    page1Btn.classList.add('bg-slate-100');
-    page2Btn.classList.remove('bg-slate-100');
-});
-
-page2Btn.addEventListener('click', () => {
-    // Hides previous page
-    page1.classList.add('hidden',);
-    page2.classList.remove('hidden');
-    page2.classList.add('block');
-    carousel.classList.add('favouritesCarousel');
-    favourites();
-
-
-    // Change bg colour of btns
-    page2Btn.classList.add('bg-slate-100');
-    page1Btn.classList.remove('bg-slate-100');
-});
 
 editAccountButton.addEventListener('click', () => {
     // Hides previous page
