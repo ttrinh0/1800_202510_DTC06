@@ -27,8 +27,6 @@ function updateBookmark(storeDocID) {
 
 }
 
-
-
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("storeCardTemplate");
     db.collection(collection).limit(3).get()
