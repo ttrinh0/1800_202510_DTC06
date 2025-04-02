@@ -1,7 +1,7 @@
 var currentUser;
 
 
-function notifyBookmark(message, type = 'success') {
+function showNotifications(message, type = 'success') {
     output = document.getElementById('notification-output');
     const notification = document.createElement('div');
     notification.className = `
@@ -54,7 +54,7 @@ function updateBookmark(storeDocID) {
                     document.getElementById(iconID).className = 'fa-regular fa-lg fa-bookmark my-auto mr-2 hover:cursor-pointer';
 
                     // notify user if bookmark is removed
-                    notifyBookmark('Removed from favourites!', 'error')
+                    showNotifications('Removed from favourites!', 'error')
                 });
         } else {
             currentUser.update({
@@ -66,7 +66,7 @@ function updateBookmark(storeDocID) {
                     document.getElementById(iconID).className = 'fa-solid fa-lg fa-bookmark my-auto mr-2 hover:cursor-pointer';
 
                     // notify user if bookmark is saved
-                    notifyBookmark('Added to favourites!')
+                    showNotifications('Added to favourites!')
                 });
         }
     });
@@ -203,6 +203,10 @@ function displayProductCardsDynamically(limit) {
                     productCart = `"${title}": { "quantity": 1, "store": "${store}", "price": "${p_after}", "img": "${itemCode}"}`
                     subtotal = subtotal + parseFloat(p_after)
                     x = ""
+
+                    // notify user adding to cart
+                    showNotifications('Added to cart!');
+
                     // Add first item
                     if (localStorage.getItem("secondServeCart") === null) {
                         firstItem = "{" + productCart + "}"
