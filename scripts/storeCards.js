@@ -1,5 +1,45 @@
 var currentUser;
 
+
+function notifyBookmark(message, type = 'success') {
+    output = document.getElementById('notification-output');
+    const notification = document.createElement('div');
+    notification.className = `
+        relative px-4 py-2 rounded-lg shadow-lg
+        ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}
+        text-white animate-slide-in
+        cursor-pointer
+        transition-all duration-300 ease-in-out
+    `;
+
+    // Add message
+    const messageElement = document.createElement('span');
+    messageElement.textContent = message;
+
+    // Assemble notification
+    notification.appendChild(messageElement);
+
+    // Add notification to container
+    output.appendChild(notification);
+
+    // Auto-remove after 1.5 seconds
+    setTimeout(() => removeNotification(notification), 1500);
+
+    // Handle clicks
+    notification.addEventListener('click', () => removeNotification(notification));
+}
+
+
+function removeNotification(element) {
+    element.classList.remove('animate-slide-in');
+    element.classList.add('animate-slide-out');
+
+    setTimeout(() => {
+        element.remove();
+    }, 300); // Wait for animation to finish
+}
+
+
 function updateBookmark(storeDocID) {
     currentUser.get().then(userDoc => {
         var bookmarks = userDoc.data().bookmarks;
@@ -12,6 +52,9 @@ function updateBookmark(storeDocID) {
                     console.log("bookmark has been removed for " + storeDocID);
                     let iconID = 'save-' + storeDocID;
                     document.getElementById(iconID).className = 'fa-regular fa-lg fa-bookmark my-auto mr-2 hover:cursor-pointer';
+
+                    // notify user if bookmark is removed
+                    notifyBookmark('Removed from favourites!', 'error')
                 });
         } else {
             currentUser.update({
@@ -21,6 +64,9 @@ function updateBookmark(storeDocID) {
                     console.log("bookmark has been saved for " + storeDocID);
                     let iconID = 'save-' + storeDocID;
                     document.getElementById(iconID).className = 'fa-solid fa-lg fa-bookmark my-auto mr-2 hover:cursor-pointer';
+
+                    // notify user if bookmark is saved
+                    notifyBookmark('Added to favourites!')
                 });
         }
     });
@@ -44,7 +90,13 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-address').innerHTML = storeAddress;
                 newcard.querySelector('a').href = "eachStoreLanding.html?docID=" + docID;
                 newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
-                newcard.querySelector('i').onclick = () => updateBookmark(docID);
+
+                // Add favouite
+                var bookmarkBtn = newcard.querySelector('i')
+                bookmarkBtn.addEventListener("click", () => {
+                    updateBookmark(docID);
+                })
+
                 currentUser.get().then(userDoc => {
                     //get the user name
                     var bookmarks = userDoc.data().bookmarks;
@@ -76,7 +128,14 @@ function displayCardsDynamicallyStorePage(collection) {
                 newcard.querySelector('.card-address').innerHTML = storeAddress;
                 newcard.querySelector('a').href = "eachStoreLanding.html?docID=" + docID;
                 newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
-                newcard.querySelector('i').onclick = () => updateBookmark(docID);
+                // newcard.querySelector('i').onclick = () => updateBookmark(docID);
+
+                var bookmarkBtn = newcard.querySelector('i')
+                bookmarkBtn.addEventListener("click", () => {
+                    // notifyBookmark('Success!');
+                    updateBookmark(docID);
+                })
+
                 currentUser.get().then(userDoc => {
                     //get the user name
                     var bookmarks = userDoc.data().bookmarks;
