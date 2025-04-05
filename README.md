@@ -125,4 +125,5 @@ It has the following subfolders and files:
 * <a href="https://unsplash.com/">Unsplash</a>
 * <a href="https://developer.mozilla.org/">MDN Web Docs</a>
 * <a href="https://www.w3schools.com/">W3 Schools</a>
+* <a href="https://www.netlify.com/">Netlify</a>
 
