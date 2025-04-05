@@ -1,98 +1,128 @@
 
-# Project Name
+# SecondServe
 
-## Overview
-Summarize your project's purpose, problem solved, key features, user benefits, development context, and main technologies used.
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Contents](#content)
 
-Example:
+## General Info
+SecondServe is a food service web application that offers food surplus at a discounted price.
 
-This client-side JavaScript web application provides real-time weather updates for cities worldwide. It simplifies accessing weather information through an intuitive mobile-first interface, allowing users to input a city name and receive data on temperature, humidity, and conditions.
+## Technologies
 
-Developed for the [Course Name] course, applying User-Centred Design practices, agile project management processes, integrating a weather API, and Firebase backend services.
+* HTML
+* CSS
+* JavaScript
+* Tailwind
+* Netlify
+* Firebase
 
----
+## Content
+Content of the project folder:
 
-## Features
-
-Example:
-- Real-time weather updates for any city.
-- Responsive design for desktop and mobile.
-- Displays temperature, humidity, and weather conditions.
-
----
-
-## Technologies Used
-
-Example:
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Firebase for hosting
-- **Database**: Firestore
-- **API**: OpenWeatherMap API
-
----
-
-## Usage
-
-Example:
-1. Open your browser and visit `http://localhost:3000`.
-2. Enter the name of the city in the search bar and press enter.
-3. View the weather information displayed on the screen.
-
----
-
-## Project Structure
-
-Example:
 ```
-project-name/
-├── src/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── components/
-├── package.json
-├── README.md
-└── .gitignore
+ Top level of project folder: 
+├── .gitignore               # Git ignore file
+├── index.html               # landing HTML file, this is what users see when you come to url
+├── login.html               # login HTML file, the log-in page
+├── account.html             # account HTML file, the account page
+├── cart.html                # cart HTML file, the cart page
+├── eachStoreLanding.html    # store landing page HTML file, the template for each store landing page
+├── favourites.html          # favourites HTML file, the favourite stores page
+├── orders.html              # orders HTML file, the orders page where the user can view their previous orders
+├── stores.html              # stores HTML file, the browse stores page
+├── template.html            # template HTML file, the user doesn't see this, this is the base template for every page
+├── main.html                # main HTML file, the landing page after log-in or user set-up
+└── README.md                # README file with project information
+
+It has the following subfolders and files:
+├── .git                     # Folder for git repo
+├── images                   # Folder for images
+
+        /BB.jpg
+        /c_bagel.jpg
+        /c_cookie.jpg
+        /c_donut.jpg
+        /c_muffin.jpg
+        /cafe.jpg
+        /foodbag.jpg
+        /FSP.jpg
+        /g_apple.jpg
+        /g_bread.jpg
+        /g_cereal.jpg
+        /g_orange.jpg
+        /grocery.jpg
+        /JB.jpg
+        /pastries.jpg
+        /r_fries.jpg
+        /r_frozen_pizza.jpg
+        /r_meal_set.jpg
+        /r_pizza.jpg
+        /r_sandwich.jpg
+        /restaurant.jpg
+        /SOF.jpg
+        /store.jpg
+        /TH.jpg
+        
+├── scripts                         # Folder for scripts
+  
+        /firebaseAPI_dtc06.js       # firebase API stuff, shared across pages
+        /account.js                 # JS for account.html
+        /authentication.js          # firebase authentication
+        /cart.js                    # JS for cart.html
+        /eachProduct.js             # JS to write products to Firestore
+        /eachStore.js               # JS to write stores to Firestore
+        /eachStoreLanding.js        # JS for eachStoreLanding.html
+        /favourites.js              # JS for favourites.html
+        /favouritesCards.js         # JS for favourites.html store cards
+        /main.js                    # JS for main.html
+        /nav.js                     # JS for the sidebar in the nav
+        /orders.js                  # JS for orders.html
+        /script.js                  # JS to logout and load certain elements
+        /skeleton.js                # JS to load the site navigation/footer
+        /storeCards.js              # JS for to populate the store cards
+        /tailwind.config.js         # tailwind config file
+
+├── styles                          # Folder for styles
+
+        /style.css                  # style for the add/remove to favourites pop up
+
+├── components                      # Folder for html components to load into html
+
+        /favourites_carousel.html       # favourites store cards
+        /footer.html                    # footer
+        /nav_bottom.html                # bottom navication
+        /nav_top_non_user.html          # style for main.htm
+        /nav_top.html                   # style for main.htm
+        /store_carousel.html            # store cards
+        /store_page_stores.html         # store cards in stores
+        /store_product_carousel.html    # product item cards
+
 ```
 
----
+## Limitations and Bugs
+- You are not able to add more than one of the same product to your cart.
+- The "Offers Left" feature on the store cards are static and do not change depending on available store products.
+- There is no way to search stores or products.
 
-## Contributors
-- **Josh** - BCIT CST Student who's addicted to videogames. Fun fact: My dad met Billy Joel at a restaurant a long time ago.
-- **Courtney Lum** - BCIT CST Student who has no programming experience. Fun fact: Has never dyed her hair before.
-- **Tin Trinh** - BCIT CST Student who is rather new to programming. Fun fact: Likes to look at the weather app.
+## Resources
 
----
+- Code snippets were adapted from resources such as [Stack Overflow](https://stackoverflow.com/), [MDN Web Docs](https://developer.mozilla.org/), and class demos.
+- Icons sourced from [FontAwesome](https://fontawesome.com/) and images from [Unsplash](https://unsplash.com/).
+- Logic to use batch from DB in cart.js was generated using AI
+
+
+## Contact 
+* Joshua Sopena
+* Courtney Lum
+* Tin Trinh - ttrinh25@my.bcit.ca
 
 ## Acknowledgments
+* <a href="https://fontawesome.com/">Font Awesome</a>
+* <a href="https://fonts.google.com/">Google Fonts</a>
+* <a href="https://stackoverflow.com/">Stack Overflow</a>
+* <a href="https://tailwindcss.com/">Tailwind</a>
+* <a href="https://unsplash.com/">Unsplash</a>
+* <a href="https://developer.mozilla.org/">MDN Web Docs</a>
+* <a href="https://www.w3schools.com/">W3 Schools</a>
 
-Example:
-- Weather data sourced from [OpenWeatherMap](https://openweathermap.org/).
-- Code snippets for ___ algoirthm were adapted from resources such as [Stack Overflow](https://stackoverflow.com/) and [MDN Web Docs](https://developer.mozilla.org/).
-- Icons sourced from [FontAwesome](https://fontawesome.com/) and images from [Unsplash](https://unsplash.com/).
-
- Logic to use batch from DB in cart.js was generated using AI
----
-
-## Limitations and Future Work
-### Limitations
-
-Example:
-- Currently, the app only supports city-based weather searches.
-- Limited to basic weather parameters like temperature, humidity, and conditions.
-- The user interface can be further enhanced for accessibility.
-
-### Future Work
-
-Example: 
-- Add support for location-based weather detection using GPS.
-- Implement additional weather parameters like wind speed and UV index.
-- Create a dark mode for better usability in low-light conditions.
-- Integrate user accounts for saving favorite locations.
-
----
-
-## License
-
-Example:
-This project is licensed under the MIT License. See the LICENSE file for details.
