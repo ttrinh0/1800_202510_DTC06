@@ -109,7 +109,7 @@ It has the following subfolders and files:
 
 - Code snippets were adapted from resources such as [Stack Overflow](https://stackoverflow.com/), [MDN Web Docs](https://developer.mozilla.org/), and class demos.
 - Icons sourced from [FontAwesome](https://fontawesome.com/) and images from [Unsplash](https://unsplash.com/).
-- Logic to use batch from DB in cart.js was generated using AI
+- Logic to use batch from DB in cart.js was generated using [ChatGPT](https://chatgpt.com/).
 
 
 ## Contact 
