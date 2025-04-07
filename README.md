@@ -104,16 +104,21 @@ It has the following subfolders and files:
 - You are not able to add more than one of the same product to your cart.
 - The "Offers Left" feature on the store cards are static and do not change depending on available store products.
 - There is no way to search stores or products.
+- Stores aren't recommended by location, even though in the user info editing there are fields for their address.
+- Each store document have addresses within their fields, but isn't actually used anywhere.
+- Each store and store items are limited to a hardcoded database, and do not reflect real stores and their items.
+- Eace store items, like bagels, pizza, etc., show when they run out, but this value is static and doesn't change when they're less items. 
 
 ## Resources
 
 - Code snippets were adapted from resources such as [Stack Overflow](https://stackoverflow.com/), [MDN Web Docs](https://developer.mozilla.org/), and class demos.
 - Icons sourced from [FontAwesome](https://fontawesome.com/) and images from [Unsplash](https://unsplash.com/).
-- Logic to use batch from DB in cart.js was generated using AI
+- Logic to use batch from DB in cart.js was generated using AI.
+- Button notifications were provided and generated using AI.
 
 
 ## Contact 
-* Joshua Sopena
+* Joshua Sopena - jsopena1@my.bcit.ca
 * Courtney Lum
 * Tin Trinh - ttrinh25@my.bcit.ca
 
