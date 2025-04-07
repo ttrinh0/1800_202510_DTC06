@@ -1,6 +1,7 @@
 
 
 function showItemInCart() {
+    // Show items the user added to their cart onto the cart page
     let cart = document.getElementById("cart")
     let cartEmpty = document.getElementById("cartEmpty")
 

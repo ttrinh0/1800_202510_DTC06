@@ -3,7 +3,7 @@
 // (navbar, footer, and other things) into html doc. 
 //---------------------------------------------------
 function loadSkeleton() {
-
+    // Loads the navigation and footer of the site
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // If the "user" variable is not null, then someone is logged in
