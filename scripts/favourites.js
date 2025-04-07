@@ -14,6 +14,7 @@ function addFavourites() {
     carousel.classList.add('favouritesCarousel');
 }
 
+// Function to get the current user's bookmarks and check if they are empty and display if favourites are empty
 function checkFavourites(currentUserId) {
     db.collection("users").get()
         .then(allUsersDocuments => {
