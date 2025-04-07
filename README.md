@@ -9,7 +9,7 @@
 SecondServe is a food service web application that offers food surplus at a discounted price.
 
 ## Technologies
-
+Technologies used for this project:
 * HTML
 * CSS
 * JavaScript
@@ -119,7 +119,7 @@ It has the following subfolders and files:
 
 ## Contact 
 * Joshua Sopena - jsopena1@my.bcit.ca
-* Courtney Lum
+* Courtney Lum - clum27@my.bcit.ca
 * Tin Trinh - ttrinh25@my.bcit.ca
 
 ## Acknowledgments
@@ -130,5 +130,6 @@ It has the following subfolders and files:
 * <a href="https://unsplash.com/">Unsplash</a>
 * <a href="https://developer.mozilla.org/">MDN Web Docs</a>
 * <a href="https://www.w3schools.com/">W3 Schools</a>
+* <a href="https://chatgpt.com/">ChatGPT</a>
 * <a href="https://www.netlify.com/">Netlify</a>
 

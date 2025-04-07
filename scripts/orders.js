@@ -1,3 +1,4 @@
+// Creates order history for user
 document.addEventListener("DOMContentLoaded", () => {
     const ordersContainer = document.getElementById("orders");
 

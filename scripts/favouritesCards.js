@@ -1,6 +1,7 @@
 var currentUser;
 
 function updateBookmark(storeDocID) {
+    // Updates favourites if user favourites/unfavourites a store
     currentUser.get().then(userDoc => {
         var bookmarks = userDoc.data().bookmarks;
         console.log(userDoc.data());
@@ -32,6 +33,7 @@ function updateBookmark(storeDocID) {
 
 
 function displayCardsDynamically(collection) {
+    // Creates store cards
     let cardTemplate = document.getElementById("storeCardTemplate");
     console.log(currentUser);
     db.collection(collection).get()

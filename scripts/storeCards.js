@@ -2,6 +2,7 @@ var currentUser;
 
 
 function showNotifications(message, type = 'success') {
+    // Shows a notification
     output = document.getElementById('notification-output');
     const notification = document.createElement('div');
     notification.className = `
@@ -31,6 +32,7 @@ function showNotifications(message, type = 'success') {
 
 
 function removeNotification(element) {
+    // Hides the notification after appearing
     element.classList.remove('animate-slide-in');
     element.classList.add('animate-slide-out');
 
@@ -41,6 +43,7 @@ function removeNotification(element) {
 
 
 function updateBookmark(storeDocID) {
+    // Updates store favourites
     currentUser.get().then(userDoc => {
         var bookmarks = userDoc.data().bookmarks;
         console.log(userDoc.data());
@@ -74,6 +77,7 @@ function updateBookmark(storeDocID) {
 }
 
 function displayCardsDynamically(collection) {
+    // Creates and shows store cards in favourites
     let cardTemplate = document.getElementById("storeCardTemplate");
     db.collection(collection).limit(3).get()
         .then(allStores => {
@@ -112,6 +116,7 @@ function displayCardsDynamically(collection) {
 }
 
 function displayCardsDynamicallyStorePage(collection) {
+    // Creates and shows store cards in store pages
     let cardTemplate = document.getElementById("storeCardStoreTemplate");
     db.collection(collection).get()
         .then(allStores => {
@@ -152,6 +157,7 @@ function displayCardsDynamicallyStorePage(collection) {
 
 
 function displayProductCardsDynamically(limit) {
+    // Creates and shows product cards, taking the selection from a randomly chosen store
     let stores = ["FMAj2BiGSZdMUOyhd2fA", "GAF04PBpq6yEcU7kQTI8", "I3JOq94DSdqN4uzu5cgg", "iyrqHUb1OpjodEdZV1Zp", "o7ZvbwVJ4uSP8adV92iT"]
     let storeID = stores[Math.floor(Math.random() * 5)]
     let cardTemplate = document.getElementById("storeProductCardTemplate");

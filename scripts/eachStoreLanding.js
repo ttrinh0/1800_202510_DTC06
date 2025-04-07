@@ -1,4 +1,5 @@
 function displayStoreInfo() {
+    // Displays the store information
     let params = new URL(window.location.href); //get URL of search bar
     let ID = params.searchParams.get("docID"); //get value for key "id"
     console.log(ID);
@@ -25,6 +26,7 @@ function displayStoreInfo() {
         });
 }
 function displayProductCardsDynamically(limit) {
+    // Displays the products of a store
     let params = new URL(window.location.href);
     let ID = params.searchParams.get("docID");
     let cardTemplate = document.getElementById("storeProductCardTemplate");
